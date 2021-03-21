@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardHeader, CardActions, CardContent, Button, TextField, Checkbox, FormControlLabel, Link }  from '@material-ui/core';
+import { Card, CardHeader, CardActions, CardContent, Button, TextField, Checkbox, FormControlLabel }  from '@material-ui/core';
+import {BrowserRouter as Router, Route, Switch, Redirect, useHistory, Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -45,8 +46,6 @@ const useStyles = makeStyles({
 export default function Login() {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
-
-
   
   const [state, setState] = React.useState({
     rememberMe: false
@@ -55,6 +54,12 @@ export default function Login() {
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
+
+  const history = useHistory();
+  const routeChange = () => { 
+    let path = `/accounts`; 
+    history.push(path);
+  }
 
   return (
   	<div className={classes.pageWrapper + " d-flex justify-content-center align-items-center h-100"}>
@@ -81,17 +86,17 @@ export default function Login() {
 					}
 					label="Remember Me"
 				/>
-				<Link href="#" variant="body2">
-	                Forgot password?
-              	</Link>
+			  <Link href="#" variant="body2">
+          Forgot password?
+      	</Link>
 			</CardContent>
 			<CardActions className={classes.buttonWrapper}>
-				<Button variant="contained" className={classes.buttonClasses}>Login</Button>
+				<Button onClick={routeChange} variant="contained" className={classes.buttonClasses}>Login</Button>
 			</CardActions>
 
 			<hr className="w-75"/>
 
-			<p className="w-100 text-center">Don't have an account? <Link href="#" variant="body2">Sign up</Link></p>
+			<p className="w-100 text-center">Don't have an account? <Link variant="body2">Sign up</Link></p>
 		</Card>
     </div>
   );
