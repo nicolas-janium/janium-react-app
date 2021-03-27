@@ -1,0 +1,26 @@
+[
+    {
+      "ulinc_campaign_id": "676c4838-5a10-46bc-9353-17e7145c046f",
+      "account_id": "ee4c4be2-14ac-43b2-9a2d-8cd49cd534f3",
+      "janium_campaign_id": "cced295f-d907-4ebc-9ebc-8d520f1a5969",
+      "ulinc_campaign_name": "IT 500",
+      "ulinc_is_active": 1,
+      "ulinc_ulinc_campaign_id": "13",
+      "ulinc_is_messenger": 0,
+      "asOfStartTime": "2021-03-19 19:11:55",
+      "asOfEndTime": "7021-03-19 19:11:55",
+      "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    },
+    {
+      "ulinc_campaign_id": "943c18f3-74c8-45cf-a396-1ddc89c6b9d2",
+      "account_id": "8acafb6b-3ce5-45b5-af81-d357509ba457",
+      "janium_campaign_id": "65c96bb2-0c32-4858-a913-ca0cd902f1fe",
+      "ulinc_campaign_name": "Unassigned Janium Campaign",
+      "ulinc_is_active": 0,
+      "ulinc_ulinc_campaign_id": "999",
+      "ulinc_is_messenger": 0,
+      "asOfStartTime": "2021-03-19 17:14:57",
+      "asOfEndTime": "7021-03-19 17:14:57",
+      "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    }
+  ]

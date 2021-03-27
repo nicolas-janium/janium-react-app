@@ -1,0 +1,16 @@
+[
+    {
+      "contact_id": "71f640ac-0573-4d6c-a9cf-65ccbef98cfd",
+      "account_id": "ee4c4be2-14ac-43b2-9a2d-8cd49cd534f3",
+      "janium_campaign_id": "cced295f-d907-4ebc-9ebc-8d520f1a5969",
+      "ulinc_campaign_id": "676c4838-5a10-46bc-9353-17e7145c046f",
+      "contact_source_id": "db689d93-dfd5-432a-80df-f0e04d9adb8c",
+      "ulinc_id": "56761866397",
+      "ulinc_ulinc_campaign_id": "13",
+      "tib_id": null,
+      "contact_info": "{\"kendo\": {\"phone\": null, \"title\": \"Vice President, Global Services Group Technology / Head of Technology - India at American Express\", \"credit\": 9977.5, \"facebook\": \"http://www.facebook.com/ruchika.panesar\", \"fullname\": \"Ruchika Baweja\", \"linkedin\": \"ruchikapanesar\", \"work_email\": {\"value\": \"ruchika.panesar@aexp.com\", \"is_valid\": false}, \"countrycode\": \"US\", \"company_name\": \"American Express\", \"companydomain\": \"aexp.com\", \"private_email\": {\"value\": \"ruchikapanesar@yahoo.com\", \"is_valid\": false}}, \"ulinc\": {\"email\": \"nic@janium.io\", \"phone\": null, \"title\": \"Vice President, Head of Technology, Asia Pacific \", \"company\": \"American Express\", \"website\": null, \"location\": \"New York, New York, United States\", \"last_name\": \"Panesar\", \"first_name\": \"Ruchika\", \"li_profile_url\": \"https://www.linkedin.com/in/ruchikapanesar/\", \"li_salesnav_profile_url\": null}}",
+      "asOfStartTime": "2021-03-19 21:45:05",
+      "asOfEndTime": "7021-03-19 21:45:05",
+      "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    }
+  ]

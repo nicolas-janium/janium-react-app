@@ -1,0 +1,32 @@
+[
+    {
+      "janium_campaign_id": "65c96bb2-0c32-4858-a913-ca0cd902f1fe",
+      "account_id": "8acafb6b-3ce5-45b5-af81-d357509ba457",
+      "email_config_id": "7c5c4aa2-2c6e-4e3d-947e-6efdae4366a1",
+      "janium_campaign_name": "Unassigned Janium Campaign",
+      "janium_campaign_description": "Unassigned Janium Campaign Description",
+      "is_messenger": 0,
+      "queue_start_time": "9999-12-31 09:00:00",
+      "queue_end_time": "9999-12-31 12:00:00",
+      "asOfStartTime": "2021-03-19 17:14:57",
+      "asOfEndTime": "7021-03-19 17:14:57",
+      "effective_start_date": "2021-03-19 17:14:57",
+      "effective_end_date": "7021-03-19 17:14:57",
+      "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    },
+    {
+      "janium_campaign_id": "cced295f-d907-4ebc-9ebc-8d520f1a5969",
+      "account_id": "ee4c4be2-14ac-43b2-9a2d-8cd49cd534f3",
+      "email_config_id": "dbf71c8e-745f-4e69-8fca-87c14d280aeb",
+      "janium_campaign_name": "Jason Hawkes Test Campaign",
+      "janium_campaign_description": null,
+      "is_messenger": 0,
+      "queue_start_time": "9999-12-31 12:00:00",
+      "queue_end_time": "9999-12-31 22:00:00",
+      "asOfStartTime": "2021-03-19 17:34:43",
+      "asOfEndTime": "7021-03-19 17:34:43",
+      "effective_start_date": "2021-03-19 17:34:43",
+      "effective_end_date": "7021-03-19 17:34:43",
+      "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    }
+  ]
