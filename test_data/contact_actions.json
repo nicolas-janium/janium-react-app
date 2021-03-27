@@ -1,0 +1,29 @@
+[
+  {
+    "action_id": "0f9b102d-a16f-4fdd-a208-1f580cee053b",
+    "contact_id": "71f640ac-0573-4d6c-a9cf-65ccbef98cfd",
+    "action_type_id": 1,
+    "action_timestamp": "2021-03-19 14:14:06",
+    "action_message": null,
+    "date_added": "2021-03-19 21:45:05",
+    "to_email_addr": null
+  },
+  {
+    "action_id": "2ebacb71-1ae2-4d1b-bc31-09924d7fb4e4",
+    "contact_id": "71f640ac-0573-4d6c-a9cf-65ccbef98cfd",
+    "action_type_id": 2,
+    "action_timestamp": "2021-03-22 21:33:00",
+    "action_message": "<div class=\"direct-chat-text\"> Thanks for reaching out, Jason. Yes, I would like to connect and join the virtual event, if it works for my schedule. <br/> Have a good rest of your week! <br/> -Gavin</div>",
+    "date_added": "2021-03-25 18:51:44",
+    "to_email_addr": null
+  },
+  {
+    "action_id": "77ff2c6c-65be-4163-abf7-ccd50bf040d6",
+    "contact_id": "71f640ac-0573-4d6c-a9cf-65ccbef98cfd",
+    "action_type_id": 3,
+    "action_timestamp": "2021-03-22 19:54:00",
+    "action_message": "<div class=\"direct-chat-text\"> Gavin, I help manage a network of 1,500+ executives here in the Mountain West (www.CXOmembers.com). My team recommended you as a sales leader here in Denver that we should be plugging in here. <br/> <br/> We have a virtual event coming up—I'd like to include you if possible. <br/> <br/> Jason</div>",
+    "date_added": "2021-03-25 18:51:44",
+    "to_email_addr": null
+  }
+]

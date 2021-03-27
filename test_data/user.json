@@ -1,0 +1,32 @@
+[
+    {
+      "user_id": "9d34bb21-7037-4709-bb0f-e1e8b1491506",
+      "first_name": "Unassigned",
+      "last_name": "User",
+      "full_name": "Unassigned User",
+      "title": null,
+      "company": null,
+      "location": null,
+      "primary_email": "unassigned321@gmail.com",
+      "phone": null,
+      "additional_contact_info": null,
+      "asOfStartTime": "2021-03-19 17:14:57",
+      "asOfEndTime": "7021-03-19 17:14:57",
+      "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    },
+    {
+      "user_id": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d",
+      "first_name": "Janium System",
+      "last_name": "Master User",
+      "full_name": "Janium System Master User",
+      "title": null,
+      "company": null,
+      "location": null,
+      "primary_email": "jason@janium.io",
+      "phone": null,
+      "additional_contact_info": null,
+      "asOfStartTime": "2021-03-19 17:14:57",
+      "asOfEndTime": "7021-03-19 17:14:57",
+      "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    }
+  ]

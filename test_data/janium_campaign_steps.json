@@ -1,0 +1,62 @@
+[
+    {
+      "janium_campaign_step_id": "55fc47cf-640d-4e31-8a9a-5a0bf6923a49",
+      "janium_campaign_id": "cced295f-d907-4ebc-9ebc-8d520f1a5969",
+      "janium_campaign_step_type_id": 4,
+      "janium_campaign_step_delay": 4,
+      "janium_campaign_step_body": "Pre connection email 1",
+      "janium_campaign_step_subject": "Subject line snatches",
+      "queue_start_time": "2021-03-19 16:14:30",
+      "queue_end_time": "2021-03-19 16:14:30",
+      "asOfStartTime": "2021-03-22 15:20:28",
+      "asOfEndTime": "7021-03-22 15:20:28",
+      "effective_start_date": "2021-03-22 15:20:28",
+      "effective_end_date": "7021-03-22 15:20:28",
+      "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    },
+    {
+      "janium_campaign_step_id": "c010dfa7-09c4-4dd2-8c42-fc828d368a7d",
+      "janium_campaign_id": "cced295f-d907-4ebc-9ebc-8d520f1a5969",
+      "janium_campaign_step_type_id": 1,
+      "janium_campaign_step_delay": 3,
+      "janium_campaign_step_body": "Li Message 1",
+      "janium_campaign_step_subject": null,
+      "queue_start_time": "2021-03-19 16:14:30",
+      "queue_end_time": "2021-03-19 16:14:30",
+      "asOfStartTime": "2021-03-22 17:40:41",
+      "asOfEndTime": "7021-03-22 17:40:41",
+      "effective_start_date": "2021-03-22 17:40:41",
+      "effective_end_date": "7021-03-22 17:40:41",
+      "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    },
+    {
+      "janium_campaign_step_id": "e7e49891-e139-41da-8c84-4ffb8eec0e67",
+      "janium_campaign_id": "cced295f-d907-4ebc-9ebc-8d520f1a5969",
+      "janium_campaign_step_type_id": 2,
+      "janium_campaign_step_delay": 2,
+      "janium_campaign_step_body": "Email step 1",
+      "janium_campaign_step_subject": "Subject line snatches",
+      "queue_start_time": "2021-03-19 16:14:30",
+      "queue_end_time": "2021-03-19 16:14:30",
+      "asOfStartTime": "2021-03-19 22:14:43",
+      "asOfEndTime": "7021-03-19 22:14:43",
+      "effective_start_date": "2021-03-19 22:14:43",
+      "effective_end_date": "7021-03-19 22:14:43",
+      "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    },
+    {
+      "janium_campaign_step_id": "f2d6bc7b-3a07-49c7-b308-3e6b6bf260ee",
+      "janium_campaign_id": "cced295f-d907-4ebc-9ebc-8d520f1a5969",
+      "janium_campaign_step_type_id": 4,
+      "janium_campaign_step_delay": 7,
+      "janium_campaign_step_body": "Pre connection email 2",
+      "janium_campaign_step_subject": "Subject line snatches",
+      "queue_start_time": "2021-03-19 16:14:30",
+      "queue_end_time": "2021-03-19 16:14:30",
+      "asOfStartTime": "2021-03-22 15:40:57",
+      "asOfEndTime": "7021-03-22 15:40:57",
+      "effective_start_date": "2021-03-22 15:40:57",
+      "effective_end_date": "7021-03-22 15:40:57",
+      "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    }
+  ]
