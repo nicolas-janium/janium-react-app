@@ -42,6 +42,7 @@ green: #74C69D
 blue: #0A369D
 black: #000
 blueish gray: #597081 OR #36494E
-
-
 */
+.accountLink:last-child .accountLinkDivider {
+  display: none;
+}

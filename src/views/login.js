@@ -45,7 +45,6 @@ const useStyles = makeStyles({
 
 export default function Login() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
   
   const [state, setState] = React.useState({
     rememberMe: false
@@ -93,10 +92,10 @@ export default function Login() {
   			<CardActions className={classes.buttonWrapper}>
   				<Button onClick={routeChange} variant="contained" className={classes.buttonClasses}>Login</Button>
   			</CardActions>
-
+{/*
   			<hr className="w-75"/>
 
-  			<p className="w-100 text-center">Don't have an account? <Link variant="body2">Sign up</Link></p>
+  			<p className="w-100 text-center">Don't have an account? <Link variant="body2">Sign up</Link></p>*/}
   		</Card>
     </div>
   );

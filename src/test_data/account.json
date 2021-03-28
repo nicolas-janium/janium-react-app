@@ -15,7 +15,9 @@
         "effective_end_date": "7021-03-19 17:14:57",
         "data_enrichment_start_date": "2021-03-19 17:14:57",
         "data_enrichment_end_date": "2021-03-19 17:14:57",
-        "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+        "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d",
+        "primary_email": "dummyemail1@gmail.com",
+        "isActive": 0
     },
     {
         "account_id": "ee4c4be2-14ac-43b2-9a2d-8cd49cd534f3",
@@ -33,6 +35,8 @@
         "effective_end_date": "7021-03-19 17:33:56",
         "data_enrichment_start_date": "2021-03-19 17:33:56",
         "data_enrichment_end_date": "2023-03-19 17:33:56",
-        "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+        "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d",
+        "primary_email": "dummyemail2@gmail.com",
+        "isActive": 1
     }
 ]

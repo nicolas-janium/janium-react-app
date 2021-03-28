@@ -11,7 +11,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import logo from '../assets/logo.png';
+import Logo from '../assets/logo2.svg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,9 +40,9 @@ export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
+  // const handleChange = (event) => {
+  //   setAuth(event.target.checked);
+  // };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -56,7 +56,7 @@ export default function Navbar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className={classes.menuWrapper + " w-100 pl-0"}>
-          <img className={classes.logo} src={logo} alt="Logo" />
+          <img className={classes.logo} src={Logo} alt="Logo" />
           {auth && (
             <div>
               <IconButton

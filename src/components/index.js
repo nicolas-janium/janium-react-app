@@ -5,5 +5,6 @@ import Loading from "./loading";
 
 import NavBar from "./navbar";
 import AccountsCard from "./accountsCard";
+import AccountList from "./accountList";
 
-export { NavBar, AccountsCard };
+export { NavBar, AccountsCard, AccountList };
