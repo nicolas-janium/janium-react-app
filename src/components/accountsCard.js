@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardActions, CardContent, CardHeader, Button, Typography, Divider, Modal, Backdrop, Fade, TextField, Checkbox, FormControlLabel } from '@material-ui/core';
 import { shadows } from '@material-ui/system';
+import { AccountList } from "../components";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function AccountsCard() {
+export default function AccountsCard(props) {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -96,9 +97,20 @@ export default function AccountsCard() {
           title="Accounts"
         />
         <CardContent>
-          <Typography variant="body2" component="p">
+          {/*<Typography variant="body2" component="p">
             There are no accounts yet.
-          </Typography>
+          </Typography>*/}
+
+          {/* Put a list here if there is data - pass data to the accountListItem component and build out list items useing .map() */}
+          {
+            props.accountsData && props.accountsData.length ?
+            <AccountList accountsData={props.accountsData} />
+            :
+            <Typography variant="body2" component="p">
+              There are no accounts yet.
+            </Typography>
+
+          }
         </CardContent>
         <Divider light />
         <CardActions className="justify-content-center">
