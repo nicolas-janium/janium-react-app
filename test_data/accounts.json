@@ -1,0 +1,38 @@
+[
+    {
+        "account_id": "8acafb6b-3ce5-45b5-af81-d357509ba457",
+        "account_type_id": 1,
+        "account_group_id": "7c22e0c6-a778-41e5-9f22-37b06c18f34a",
+        "ulinc_config_id": "dff0e400-b338-4bc5-bb99-617bade305bd",
+        "email_config_id": "7c5c4aa2-2c6e-4e3d-947e-6efdae4366a1",
+        "time_zone_id": "d928e137-ad64-492c-bcad-6a1464382b04",
+        "is_sending_emails": 0,
+        "is_sending_li_messages": 0,
+        "is_receiving_dte": 0,
+        "asOfStartTime": "2021-03-19 17:14:57",
+        "asOfEndTime": "7021-03-19 17:14:57",
+        "effective_start_date": "2021-03-19 17:14:57",
+        "effective_end_date": "7021-03-19 17:14:57",
+        "data_enrichment_start_date": "2021-03-19 17:14:57",
+        "data_enrichment_end_date": "2021-03-19 17:14:57",
+        "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    },
+    {
+        "account_id": "ee4c4be2-14ac-43b2-9a2d-8cd49cd534f3",
+        "account_type_id": 1,
+        "account_group_id": "7c22e0c6-a778-41e5-9f22-37b06c18f34a",
+        "ulinc_config_id": "4ec1f94a-f046-47ff-a468-b26e635894ea",
+        "email_config_id": "dbf71c8e-745f-4e69-8fca-87c14d280aeb",
+        "time_zone_id": "d928e137-ad64-492c-bcad-6a1464382b04",
+        "is_sending_emails": 1,
+        "is_sending_li_messages": 1,
+        "is_receiving_dte": 1,
+        "asOfStartTime": "2021-03-19 17:33:56",
+        "asOfEndTime": "7021-03-19 17:33:56",
+        "effective_start_date": "2021-03-19 17:33:56",
+        "effective_end_date": "7021-03-19 17:33:56",
+        "data_enrichment_start_date": "2021-03-19 17:33:56",
+        "data_enrichment_end_date": "2023-03-19 17:33:56",
+        "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    }
+]
