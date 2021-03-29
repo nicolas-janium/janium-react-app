@@ -1,0 +1,32 @@
+[
+    {
+      "ulinc_config_id": "dff0e400-b338-4bc5-bb99-617bade305bd",
+      "credentials_id": "264f534f-d36e-4c3c-9614-9760f47ee0e3",
+      "cookie_id": "dd0dfdaa-3d58-4d96-85dc-cd68307f528d",
+      "account_id": "8acafb6b-3ce5-45b5-af81-d357509ba457",
+      "ulinc_client_id": "999",
+      "ulinc_li_email": "unassigned@email.com",
+      "ulinc_is_active": false,
+      "new_connection_webhook": "123",
+      "new_message_webhook": "123",
+      "send_message_webhook": "123",
+      "asOfStartTime": "2021-03-29 21:45:10",
+      "asOfEndTime": "7021-03-29 21:45:10",
+      "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    },
+    {
+      "ulinc_config_id": "02a11e02-c90f-4df5-bf6d-d662df9e7fbf",
+      "credentials_id": "7d20eef4-b5f8-4e2f-8a68-64c66b29deb9",
+      "cookie_id": "a127fe31-1ed2-4847-ab91-b753cf47916b",
+      "account_id": "null",
+      "ulinc_client_id": "5676186",
+      "ulinc_li_email": "jason@janium.io",
+      "ulinc_is_active": true,
+      "new_connection_webhook": null,
+      "new_message_webhook": null,
+      "send_message_webhook": null,
+      "asOfStartTime": "default",
+      "asOfEndTime": "default",
+      "updated_by": "a0bcc7a2-5e2b-41c6-9d5c-ba8ebb01c03d"
+    }
+  ]
