@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow }  from '@material-ui/core';
-import { NavBar } from "../components";
+import { NavBar, ConnectorTable } from "../components";
 
 const useStyles = makeStyles({
   root: {
@@ -18,6 +18,8 @@ export default function AccountHomePage(props) {
   	<div className={classes.root + " h-100"}>
       <NavBar />
       <br />
+      {/*tables will go here*/}
+      <ConnectorTable />
     </div>
   );
 }
