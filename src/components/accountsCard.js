@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cardHeader: {
     background: "#74C69D",
-    boxShadow: "-3px -5px 6px 9px rgb(0 0 0 / 20%)"
+    boxshadow: "-3px -5px 6px 9px rgb(0 0 0 / 20%)" 
   },
   title: {
     fontSize: 14,
@@ -30,14 +30,14 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: theme.palette.background.paper,
     borderRadius: '5px',
-    boxShadow: theme.shadows[5],
+    boxshadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     width: 375
   },
   inputFields: {
     minWidth: 275,
     marginBottom: 15,
-    boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
+    boxshadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
     borderRadius: 5
   },
   buttonWrapper: {
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 125,
     width: '100%',
     transition: '0.1s linear',
-    boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
+    boxshadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
     '&:hover': {
       backgroundColor: '#74C69D',
       transform: 'scale(1.05)'
@@ -93,7 +93,7 @@ export default function AccountsCard(props) {
       <Card className={classes.root + " m-auto"}>
         <CardHeader 
           className={classes.cardHeader} 
-          boxShadow={3}
+          boxshadow={3}
           title="Accounts"
         />
         <CardContent>

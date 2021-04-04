@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardHeader, CardActions, CardContent, Button, TextField, Checkbox, FormControlLabel, Link }  from '@material-ui/core';
 import {BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import { NavBar, AccountsCard } from "../components";
+import { NavBar, AccountsCard, CommunicationStatsTable } from "../components";
 
 let accountsData = require('../test_data/account.json');
 
@@ -19,7 +19,13 @@ export default function Accounts() {
   	<div className={classes.root + " h-100"}>
       <NavBar />
       <br />
-		  <AccountsCard accountsData={accountsData} />
+		  <AccountsCard accountsData={accountsData} /> 
+      <br />
+      <div className="d-flex px-5">
+        <CommunicationStatsTable />
+      </div>
+      
+
     </div>
   );
 }

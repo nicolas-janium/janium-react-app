@@ -30,6 +30,18 @@ const useStyles = makeStyles((theme) => ({
       transform: 'scale(1.05)'
     }
   },
+  settingsButtonStyles: {
+    color:'#0A369D',
+    minWidth: 0,
+    marginTop: 4,
+    marginBottom: 4,
+    marginLeft: 10,
+    fontSize: '1rem',
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontWeight: 400,
+    lineHeight: 1.5,
+    letterSpacing: '0.00938em'
+  },
   emailStyles: {
     color:'#0A369D',
     flex: '1 1 auto',
@@ -50,21 +62,21 @@ export default function AccountList(props) {
   return (
     <List component="nav" className={classes.root + " accountListWrapper"} aria-label="mailbox folders">
       {
-        props.accountsData.map((accountInfo) => {
+        props.accountsData.map((accountInfo, i) => {
           return (
             <div className="accountLink">
-              <ListItem button>
+              <ListItem key={accountInfo.account_id} button>
                 <Link className={classes.emailStyles} to={{pathname: '/accountHomePage', state:{account: accountInfo}}}>
                   {accountInfo.primary_email}
                 </Link>
                 <Button variant="contained" className={accountInfo.isActive ? classes.buttonActive : classes.buttonInactive}>{accountInfo.isActive ? "Active" : "Inactive"}</Button>
+                <Link variant="contained" className={classes.settingsButtonStyles} to={{pathname: '/settingsPage', state:{account: accountInfo}}}>Settings</Link>
               </ListItem>
               <Divider className="accountLinkDivider" />
             </div>
           )
         })
       }
-      
     </List>
   );
 }

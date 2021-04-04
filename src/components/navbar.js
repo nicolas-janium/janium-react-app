@@ -12,6 +12,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Logo from '../assets/logo2.svg';
+import {BrowserRouter as Router, Route, Redirect, useHistory, Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,6 +53,12 @@ export default function Navbar() {
     setAnchorEl(null);
   };
 
+  const history = useHistory();
+  const routeChange = () => { 
+    let path = `/accounts`; 
+    history.push(path);
+  }
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -83,7 +90,7 @@ export default function Navbar() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Accounts</MenuItem>
+                <MenuItem onClick={routeChange}>Accounts</MenuItem>
                 <MenuItem onClick={handleClose}>Support</MenuItem>
               </Menu>
             </div>

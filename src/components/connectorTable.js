@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   tableWrapper: {
@@ -24,10 +25,9 @@ function createData(title, status, contacts, connected, repliedConnectionMessage
 
 const rows = [
   createData('Arcant', 'Active', 60, 24, 40, 100),
-  createData('Arcant', 'Active', 60, 24, 40, 100),
-  createData('Arcant', 'Active', 60, 24, 40, 100),
-  createData('Arcant', 'Active', 60, 24, 40, 100),
-  
+  createData('Arcant2', 'Active', 60, 24, 40, 100),
+  createData('Arcant3', 'Active', 60, 24, 40, 100),
+  createData('Arcant4', 'Active', 60, 24, 40, 100)
 ];
 
 export default function ConnectorTable() {
@@ -35,6 +35,8 @@ export default function ConnectorTable() {
 
   return (
     <TableContainer component={Paper} className={classes.tableWrapper + " m-auto"}>
+      <div className="ml-2 mt-2 h4">Connector campaigns</div>
+      <hr className="mb-0"/>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
