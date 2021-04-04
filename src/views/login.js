@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     minWidth: 325,
     maxWidth: 375,
     paddingBottom: 20,
-    boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'
+    boxshadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'
   },
   pageWrapper: {
   	background: '#597081'
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   inputFields: {
   	minWidth: 275,
   	marginBottom: 15,
-  	boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
+  	boxshadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
   	borderRadius: 5
   },
   buttonWrapper: {
@@ -35,7 +35,7 @@ const useStyles = makeStyles({
   	minWidth: 125,
   	width: '100%',
   	transition: '0.1s linear',
-  	boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
+  	boxshadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
   	'&:hover': {
       backgroundColor: '#74C69D',
       transform: 'scale(1.05)'

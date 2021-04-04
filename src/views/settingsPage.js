@@ -9,18 +9,15 @@ const useStyles = makeStyles({
   }
 });
 
-export default function AccountHomePage(props) {
+export default function SettingsPage(props) {
   const classes = useStyles();
 
-  console.log('homepage: ' + props.location.state.account.account_id);
+//   console.log('setting page: ' + props.location.state.account.account_id);
 
   return (
   	<div className={classes.root + " h-100"}>
       <NavBar />
       <br />
-      {/*tables will go here*/}
-      <ConnectorTable />
     </div>
   );
 }
-
