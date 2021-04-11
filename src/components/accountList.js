@@ -64,8 +64,8 @@ export default function AccountList(props) {
       {
         props.accountsData.map((accountInfo, i) => {
           return (
-            <div className="accountLink">
-              <ListItem key={accountInfo.account_id} button>
+            <div className="accountLink" key={accountInfo.account_id}>
+              <ListItem button>
                 <Link className={classes.emailStyles} to={{pathname: '/accountHomePage', state:{account: accountInfo}}}>
                   {accountInfo.primary_email}
                 </Link>

@@ -8,5 +8,6 @@ import AccountsCard from "./accountsCard";
 import AccountList from "./accountList";
 import ConnectorTable from "./connectorTable";
 import CommunicationStatsTable from "./communicationStatsTable";
+import AccountDetailsDataList from "./accountDetailsDataList";
 
-export { NavBar, AccountsCard, AccountList, ConnectorTable, CommunicationStatsTable };
+export { NavBar, AccountsCard, AccountList, ConnectorTable, CommunicationStatsTable, AccountDetailsDataList };
