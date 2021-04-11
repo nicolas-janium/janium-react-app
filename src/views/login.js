@@ -43,60 +43,163 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Login() {
+export default function Login(props) {
   const classes = useStyles();
   
   const [state, setState] = React.useState({
-    rememberMe: false
+    signUp: false,
+    rememberMe: false,
+    username: "",
+    password: "",
+    // signup values
+    signUpFirstname: "",
+    signUpLastName: "",
+    title: "",
+    company: "",
+    accountAdminEmail: "",
+    signUpEmail: "",
+    signUpPassword: "",
+    signUpPasswordConfirm: ""
   });
+
+  //TODO: create method to hanle signup once axios calls are setup 
+  const handleSignUpState = (event) => {
+    setState({
+      ...state,
+      signUp: !state.signUp
+    });
+  };
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
+  const handleTextChange = (event) => {
+    setState({...state, [event.target.name]: event.target.value});
+  }
+
   const history = useHistory();
-  const routeChange = () => { 
+  const handleSignIn = () => { 
     let path = `/accounts`; 
+    // do an api call to /auth/api/login??
+    // get back an account id
+    let params = {
+      username: state.username,
+      password: state.password
+    }
+    // api.signIn(params).then((response) => {
+      props.setAccountInfo({
+        accountId: 'account1234',
+        isSignedIn: true,
+      });
+    // }).catch(() => {
+      // do something else
+    // });
+    history.push(path);
+  }
+
+  const handleSignUp = () => {
+    let path = `/accounts`; 
+    // do an api call to /auth/api/login??
+    // get back an account id
+    let params = {
+      username: state.signUpEmail,
+      password: state.signUpPassword
+    }
+    // api.signUp(params).then((response) => {
+
+      //set this so the Apps.js can handle the state and props info getting passes
+      props.setAccountInfo({
+        accountId: 'account1234',
+        isSignedIn: true,
+      });
+
+    // }).catch(() => {
+      // do something else
+    // });
     history.push(path);
   }
 
   return (
   	<div className={classes.pageWrapper + " d-flex justify-content-center align-items-center h-100"}>
-  		<Card className={classes.root} variant="outlined">
-  			<CardHeader className="text-center" titleTypographyProps={{variant:'h5'}} title="Log in to Janium" />
-  			<CardContent className="d-flex flex-column align-items-center">
-  				<TextField className={classes.inputFields} label="Username" type="text" variant="outlined" />
-  				<TextField
-  					className={classes.inputFields}
-  					id="outlined-password-input"
-  					label="Password"
-  					type="password"
-  					autoComplete="current-password"
-  					variant="outlined"
-  		        />
-  				<FormControlLabel
-  					control={
-  					<Checkbox
-  						checked={state.checkedB}
-  						onChange={handleChange}
-  						name="rememberMe"
-  						color="primary"
-  					/>
-  					}
-  					label="Remember Me"
-  				/>
-  			  <Link href="#" variant="body2">
-            Forgot password?
-        	</Link>
-  			</CardContent>
-  			<CardActions className={classes.buttonWrapper}>
-  				<Button onClick={routeChange} variant="contained" className={classes.buttonClasses}>Login</Button>
-  			</CardActions>
-{/*
-  			<hr className="w-75"/>
+      {
+        state.signUp ?
+        <Card className={classes.root} variant="outlined">
+          <CardHeader className="text-center" titleTypographyProps={{variant:'h5'}} title="Sign Up for Janium" />
+          <CardContent className="d-flex flex-column align-items-center">
+            <TextField className={classes.inputFields} onChange={handleTextChange} label="signUpFirstname" type="text" variant="outlined" name="username" value={state.signUpFirstname} />
+            <TextField className={classes.inputFields} onChange={handleTextChange} label="signUpLastName" type="text" variant="outlined" name="username" value={state.signUpLastName} />
+            <TextField className={classes.inputFields} onChange={handleTextChange} label="title" type="text" variant="outlined" name="username" value={state.title} />
+            <TextField className={classes.inputFields} onChange={handleTextChange} label="company" type="text" variant="outlined" name="username" value={state.company} />
+            <TextField className={classes.inputFields} onChange={handleTextChange} label="accountAdminEmail" type="text" variant="outlined" name="username" value={state.accountAdminEmail} />
+            <TextField className={classes.inputFields} onChange={handleTextChange} label="signUpEmail" type="text" variant="outlined" name="username" value={state.signUpEmail} />
+            <TextField
+              className={classes.inputFields}
+              id="outlined-password-input"
+              label="Password"
+              type="password"
+              autoComplete="current-password"
+              variant="outlined"
+              name="signUpPassword"
+              onChange={handleTextChange}
+              value={state.signUpPassword}
+            />
+            <TextField
+              className={classes.inputFields}
+              id="outlined-password-input"
+              label="Re-confirm Password"
+              type="password"
+              autoComplete="current-password"
+              variant="outlined"
+              name="signUpPasswordConfirm"
+              onChange={handleTextChange}
+              value={state.signUpPasswordConfirm}
+            />
 
-  			<p className="w-100 text-center">Don't have an account? <Link variant="body2">Sign up</Link></p>*/}
-  		</Card>
+          </CardContent>
+          <CardActions className={classes.buttonWrapper}>
+            <Button onClick={handleSignUpState} variant="contained" className={classes.buttonClasses}>SIGN UP</Button>
+          </CardActions>
+        </Card>
+        :
+        <Card className={classes.root} variant="outlined">
+          <CardHeader className="text-center" titleTypographyProps={{variant:'h5'}} title="Log in to Janium" />
+          <CardContent className="d-flex flex-column align-items-center">
+            <TextField className={classes.inputFields} onChange={handleTextChange} label="Username" type="text" variant="outlined" name="username" value={state.username} />
+            <TextField
+              className={classes.inputFields}
+              id="outlined-password-input"
+              label="Password"
+              type="password"
+              autoComplete="current-password"
+              variant="outlined"
+              name="password"
+              onChange={handleTextChange}
+              value={state.password}
+                />
+            <FormControlLabel
+              control={
+              <Checkbox
+                checked={state.checkedB}
+                onChange={handleChange}
+                name="rememberMe"
+                color="primary"
+              />
+              }
+              label="Remember Me"
+            />
+            <Link href="#" variant="body2">
+              Forgot password?
+            </Link>
+          </CardContent>
+          <CardActions className={classes.buttonWrapper}>
+            <Button onClick={handleSignIn} variant="contained" className={classes.buttonClasses}>Login</Button>
+          </CardActions>
+          <hr className="w-75"/>
+          <p className="w-100 text-center">Don't have an account? <Link variant="body2" onClick={handleSignUpState}>Sign up</Link></p>
+        </Card>
+      }
+  		
     </div>
   );
 }

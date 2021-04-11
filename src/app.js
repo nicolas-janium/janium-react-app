@@ -13,13 +13,27 @@ const App = () => {
   // if (isLoading) {
   //   return <Loading />;
   // }
+  const [accountInfo, setAccountInfo] = React.useState({
+    accountId: null,
+    isSignedIn: false,
+  });
 
   return (
     <Router>
       <div id="app" className="d-flex flex-column h-100">
+      
           <Switch>
-            <Route path="/" exact component={Login} />
-            <Route path="/accounts" component={Accounts} />
+            <Route path="/" exact render={() => {
+              if (accountInfo.isSignedIn === true) {
+                return <Redirect to="/accounts" />
+              } else {
+                return <Login accountInfo={accountInfo} setAccountInfo={setAccountInfo}/>
+              }
+            }}/>
+            <Route path="/accounts"  render={() => {
+
+              return <Accounts accountInfo={accountInfo}/>
+            }} />
             <Route path="/accountHomePage" component={AccountHomePage} />
             <Route path="/settingsPage" component={SettingsPage} />
           </Switch>
