@@ -70,6 +70,10 @@ const useStyles = makeStyles((theme) => ({
 export default function AccountsCard(props) {
   const classes = useStyles();
 
+  const [createUlincData, setUlincData] = React.useState({
+
+  });
+
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -135,16 +139,12 @@ export default function AccountsCard(props) {
             <Card variant="outlined">
               <CardHeader className="text-center" titleTypographyProps={{variant:'h5'}} title="Account Setup" />
               <CardContent className="d-flex flex-column align-items-center">
-                <TextField className={classes.inputFields} label="First Name" type="text" variant="outlined" size="small" />
-                <TextField className={classes.inputFields} label="Last Name" type="text" variant="outlined" size="small" />
-                <TextField className={classes.inputFields} label="Title" type="text" variant="outlined" size="small" />
-                <TextField className={classes.inputFields} label="Company" type="text" variant="outlined" size="small" />
-                <TextField className={classes.inputFields} label="Account Admin Access (Email)" type="text" variant="outlined" size="small" />
-                <TextField className={classes.inputFields} label="Ulinc Login Email" type="text" variant="outlined" size="small" />
+                <TextField className={classes.inputFields} label="Username*" type="text" variant="outlined" size="small" />
+                <TextField className={classes.inputFields} label="Ulinc Login Email*" type="text" variant="outlined" size="small" /> 
                 <TextField
                   className={classes.inputFields}
                   id="outlined-password-input"
-                  label="Ulinc Login Password"
+                  label="Ulinc Login Password*"
                   type="password"
                   autoComplete="current-password"
                   variant="outlined"

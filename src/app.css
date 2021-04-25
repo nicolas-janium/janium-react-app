@@ -46,3 +46,8 @@ blueish gray: #597081 OR #36494E
 .accountLink:last-child .accountLinkDivider {
   display: none;
 }
+
+/* hover on all table rows */
+tr:hover {
+  background-color: #ecf3fa;
+}

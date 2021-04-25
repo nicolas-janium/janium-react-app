@@ -53,19 +53,21 @@ export default function Login(props) {
     rememberMe: false,
     username: "",
     password: "",
-    // signup values
-    signUpFirstname: "",
-    signUpLastName: "",
-    title: "",
-    company: "",
-    accountAdminEmail: "",
-    signUpEmail: "",
-    signUpPassword: "",
-    signUpPasswordConfirm: ""
   });
 
-  //TODO: create method to hanle signup once axios calls are setup 
-  const handleSignUpState = (event) => {
+  const [signUpData, setSignUpData] = React.useState({
+    username: "",
+    password: "",
+    first_name: "",
+    last_name: "",
+    title: "",
+    company: "",
+    time_zone_code: "US/Mountain"
+  });
+
+
+
+  const showSignUp = (event) => {
     setState({
       ...state,
       signUp: !state.signUp
@@ -80,17 +82,19 @@ export default function Login(props) {
     setState({...state, [event.target.name]: event.target.value});
   }
 
+  const handleSignUpTextChange = (event) => {
+    setSignUpData({...signUpData, [event.target.name]: event.target.value});
+  }
+
   const history = useHistory();
   const handleSignIn = () => { 
-    // let path = `/accounts`; 
-    // do an api call to /auth/api/login??
-    // get back an account id
+
     let params = {
       username: state.username,
       password: state.password
     }
+
     Api.login(params, signInSuccess, signInFailed);
-    
   }
 
   const signInSuccess = (response) => {
@@ -108,28 +112,36 @@ export default function Login(props) {
     });
   }
 
-
-
   const handleSignUp = () => {
-    let path = `/accounts`; 
-    // do an api call to /auth/api/login??
-    // get back an account id
     let params = {
-      username: state.signUpEmail,
-      password: state.signUpPassword
+      username: signUpData.username,
+      password: signUpData.password,
+      first_name: signUpData.first_name,
+      last_name: signUpData.last_name,
+      title: signUpData.title,
+      company: signUpData.company,
+      time_zone_code: "US/Mountain"
     }
-    // api.signUp(params).then((response) => {
 
-      //set this so the Apps.js can handle the state and props info getting passes
-      props.setAccountInfo({
-        accountId: 'account1234',
-        isSignedIn: true,
-      });
+    Api.signUp(params, signUpSuccess, signUpFailed);
+  }
 
-    // }).catch(() => {
-      // do something else
-    // });
+  const signUpSuccess = (response) => {
+    let path = `/`; 
+    props.setAccountInfo({
+      isSignedIn: false
+    });
+
+    alert('Sign up successful');
+    showSignUp();
+    
     history.push(path);
+  }
+
+  const signUpFailed = () => {
+    props.setAccountInfo({
+      isSignedIn: false
+    });
   }
 
   return (
@@ -139,12 +151,12 @@ export default function Login(props) {
         <Card className={classes.root} variant="outlined">
           <CardHeader className="text-center" titleTypographyProps={{variant:'h5'}} title="Sign Up for Janium" />
           <CardContent className="d-flex flex-column align-items-center">
-            <TextField className={classes.inputFields} onChange={handleTextChange} label="signUpFirstname" type="text" variant="outlined" name="username" value={state.signUpFirstname} />
-            <TextField className={classes.inputFields} onChange={handleTextChange} label="signUpLastName" type="text" variant="outlined" name="username" value={state.signUpLastName} />
-            <TextField className={classes.inputFields} onChange={handleTextChange} label="title" type="text" variant="outlined" name="username" value={state.title} />
-            <TextField className={classes.inputFields} onChange={handleTextChange} label="company" type="text" variant="outlined" name="username" value={state.company} />
-            <TextField className={classes.inputFields} onChange={handleTextChange} label="accountAdminEmail" type="text" variant="outlined" name="username" value={state.accountAdminEmail} />
-            <TextField className={classes.inputFields} onChange={handleTextChange} label="signUpEmail" type="text" variant="outlined" name="username" value={state.signUpEmail} />
+            <TextField className={classes.inputFields} onChange={handleSignUpTextChange} label="First Name" type="text" variant="outlined" name="first_name" value={signUpData.first_name} />
+            <TextField className={classes.inputFields} onChange={handleSignUpTextChange} label="Last Name" type="text" variant="outlined" name="last_name" value={signUpData.last_name} />
+            <TextField className={classes.inputFields} onChange={handleSignUpTextChange} label="Title" type="text" variant="outlined" name="title" value={signUpData.title} />
+            <TextField className={classes.inputFields} onChange={handleSignUpTextChange} label="Company" type="text" variant="outlined" name="company" value={signUpData.company} />
+            {/* <TextField className={classes.inputFields} onChange={handleTextChange} label="accountAdminEmail" type="text" variant="outlined" name="accountAdminEmail" value={signUpData.accountAdminEmail} /> */}
+            <TextField className={classes.inputFields} onChange={handleSignUpTextChange} label="Username (E-mail)" type="text" variant="outlined" name="username" value={signUpData.username} />
             <TextField
               className={classes.inputFields}
               id="outlined-password-input"
@@ -152,11 +164,11 @@ export default function Login(props) {
               type="password"
               autoComplete="current-password"
               variant="outlined"
-              name="signUpPassword"
-              onChange={handleTextChange}
-              value={state.signUpPassword}
+              name="password"
+              onChange={handleSignUpTextChange}
+              value={signUpData.password}
             />
-            <TextField
+            {/* <TextField
               className={classes.inputFields}
               id="outlined-password-input"
               label="Re-confirm Password"
@@ -164,13 +176,13 @@ export default function Login(props) {
               autoComplete="current-password"
               variant="outlined"
               name="signUpPasswordConfirm"
-              onChange={handleTextChange}
+              onChange={handleSignUpTextChange}
               value={state.signUpPasswordConfirm}
-            />
+            /> */}
 
           </CardContent>
           <CardActions className={classes.buttonWrapper}>
-            <Button onClick={handleSignUpState} variant="contained" className={classes.buttonClasses}>SIGN UP</Button>
+            <Button onClick={handleSignUp} variant="contained" className={classes.buttonClasses}>SIGN UP</Button>
           </CardActions>
         </Card>
         :
@@ -208,7 +220,7 @@ export default function Login(props) {
             <Button onClick={handleSignIn} variant="contained" className={classes.buttonClasses}>Login</Button>
           </CardActions>
           <hr className="w-75"/>
-          <p className="w-100 text-center">Don't have an account? <a variant="body2" onClick={handleSignUpState}>Sign up</a></p>
+          <p className="w-100 text-center">Don't have an account? <a variant="body2" onClick={showSignUp}>Sign up</a></p>
         </Card>
       }
   		
