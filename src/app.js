@@ -3,9 +3,11 @@ import {BrowserRouter as Router, Route, Switch, Redirect } from "react-router-do
 
 import { NavBar, Footer, Loading } from "./components";
 import { Login, Accounts, AccountHomePage, SettingsPage } from "./views";
+import * as Api from "./api.js";
 
 
 import "./app.css";
+import { SettingsInputAntennaTwoTone } from "@material-ui/icons";
 
 const App = () => {
   // const { isLoading } = useAuth0();
@@ -17,6 +19,22 @@ const App = () => {
     accountId: null,
     isSignedIn: false,
   });
+
+  const [accountPage, setAccountPageData] = React.useState({
+    accountPageData: null
+  })
+
+  const getAccountPageData = () => {
+    Api.getAccountPageData(accountPageDataSuccess, accountPageDataFailure);
+  }
+  const accountPageDataSuccess = (response) => {
+    setAccountPageData({...accountPage, accountPageData: response.data});
+    return <Accounts accountInfo={accountInfo} state={accountPage.accountPageData}/>
+  }
+
+  const accountPageDataFailure = () => {
+    console.log("could not pull data");
+  }
 
   return (
     <Router>
@@ -30,9 +48,13 @@ const App = () => {
                 return <Login accountInfo={accountInfo} setAccountInfo={setAccountInfo}/>
               }
             }}/>
-            <Route path="/accounts"  render={() => {
 
-              return <Accounts accountInfo={accountInfo}/>
+            <Route path="/accounts"  render={() => {
+              if (accountPage.accountPageData == null) {
+                getAccountPageData();
+              } else {
+                return <Accounts accountInfo={accountInfo} state={accountPage.accountPageData}/>
+              }
             }} />
             <Route path="/accountHomePage" component={AccountHomePage} />
             <Route path="/settingsPage" component={SettingsPage} />

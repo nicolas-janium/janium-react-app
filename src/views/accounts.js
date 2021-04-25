@@ -9,11 +9,15 @@ let accountsData = require('../test_data/account.json');
 const useStyles = makeStyles({
   root: {
     background: "#597081"
+  }, 
+  tablesWrapper: {
+    maxWidth: 1400
   }
 });
 
 export default function Accounts(props) {
   const classes = useStyles();
+  console.log('thems be my account props: ', props);
 
   return (
   	<div className={classes.root + " h-100"}>
@@ -21,9 +25,9 @@ export default function Accounts(props) {
       <br />
 		  <AccountsCard accountsData={accountsData} /> 
       <br />
-      <div className="d-flex justify-content-around align-items-center px-5">
+      <div className={classes.tablesWrapper + " d-flex justify-content-around align-items-center px-5 mx-auto"}>
         <CommunicationStatsTable />
-        <AccountDetailsDataList />
+        {/* <AccountDetailsDataList /> */}
       </div>
       
 

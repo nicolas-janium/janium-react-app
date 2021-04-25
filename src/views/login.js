@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardHeader, CardActions, CardContent, Button, TextField, Checkbox, FormControlLabel }  from '@material-ui/core';
 import {BrowserRouter as Router, Route, Switch, Redirect, useHistory, Link } from "react-router-dom";
+import * as Api from "../api.js";
+import Cookies from 'js-cookie';
 
 const useStyles = makeStyles({
   root: {
@@ -80,23 +82,33 @@ export default function Login(props) {
 
   const history = useHistory();
   const handleSignIn = () => { 
-    let path = `/accounts`; 
+    // let path = `/accounts`; 
     // do an api call to /auth/api/login??
     // get back an account id
     let params = {
       username: state.username,
       password: state.password
     }
-    // api.signIn(params).then((response) => {
-      props.setAccountInfo({
-        accountId: 'account1234',
-        isSignedIn: true,
-      });
-    // }).catch(() => {
-      // do something else
-    // });
+    Api.login(params, signInSuccess, signInFailed);
+    
+  }
+
+  const signInSuccess = (response) => {
+    let path = `/accounts`; 
+    props.setAccountInfo({
+      isSignedIn: true
+    });
+    
     history.push(path);
   }
+
+  const signInFailed = () => {
+    props.setAccountInfo({
+      isSignedIn: false
+    });
+  }
+
+
 
   const handleSignUp = () => {
     let path = `/accounts`; 
@@ -188,15 +200,15 @@ export default function Login(props) {
               }
               label="Remember Me"
             />
-            <Link href="#" variant="body2">
+            {/* <Link href="#" variant="body2">
               Forgot password?
-            </Link>
+            </Link> */}
           </CardContent>
           <CardActions className={classes.buttonWrapper}>
             <Button onClick={handleSignIn} variant="contained" className={classes.buttonClasses}>Login</Button>
           </CardActions>
           <hr className="w-75"/>
-          <p className="w-100 text-center">Don't have an account? <Link variant="body2" onClick={handleSignUpState}>Sign up</Link></p>
+          <p className="w-100 text-center">Don't have an account? <a variant="body2" onClick={handleSignUpState}>Sign up</a></p>
         </Card>
       }
   		
