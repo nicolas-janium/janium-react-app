@@ -64,12 +64,12 @@ export default function AccountList(props) {
       {
         props.accountsData.map((accountInfo, i) => {
           return (
-            <div className="accountLink" key={accountInfo.account_id}>
+            <div className="accountLink" key={accountInfo.ulinc_config_id}>
               <ListItem button>
-                <Link className={classes.emailStyles} to={{pathname: '/accountHomePage', state:{account: accountInfo}}}>
-                  {accountInfo.primary_email}
+                <Link className={classes.emailStyles} to={{pathname: '/accountHomePage/:' + accountInfo.ulinc_config_id, state:{account: accountInfo}}}>
+                  {accountInfo.ulinc_li_email}
                 </Link>
-                <Button variant="contained" className={accountInfo.isActive ? classes.buttonActive : classes.buttonInactive}>{accountInfo.isActive ? "Active" : "Inactive"}</Button>
+                <Button variant="contained" className={accountInfo.ulinc_is_active ? classes.buttonActive : classes.buttonInactive}>{accountInfo.ulinc_is_active ? "Active" : "Inactive"}</Button>
                 <Link variant="contained" className={classes.settingsButtonStyles} to={{pathname: '/settingsPage', state:{account: accountInfo}}}>Settings</Link>
               </ListItem>
               <Divider className="accountLinkDivider" />

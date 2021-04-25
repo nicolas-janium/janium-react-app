@@ -13,6 +13,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Logo from '../assets/logo2.svg';
 import {BrowserRouter as Router, Route, Redirect, useHistory, Link } from "react-router-dom";
+import * as Api from "../api.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Navbar() {
+export default function Navbar(props) {
   const classes = useStyles();
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -58,6 +59,25 @@ export default function Navbar() {
     let path = `/accounts`; 
     history.push(path);
   }
+
+  const logOutClickHandler = () => {
+    Api.logOut(logOutSuccess, logOutFailed);
+  }
+
+  const logOutSuccess = () => {
+    let path = `/`; 
+    props.setAccountInfo({
+      isSignedIn: false
+    });
+    
+    history.push(path);
+  }
+
+  const logOutFailed = (error) => {
+    console.log('logout failed', error)
+  }
+
+
 
   return (
     <div className={classes.root}>
@@ -92,6 +112,7 @@ export default function Navbar() {
               >
                 <MenuItem onClick={routeChange}>Accounts</MenuItem>
                 <MenuItem onClick={handleClose}>Support</MenuItem>
+                <MenuItem onClick={logOutClickHandler}>Log Out</MenuItem>
               </Menu>
             </div>
           )}

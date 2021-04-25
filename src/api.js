@@ -12,6 +12,7 @@ let config = {
     }
 }
 
+// POSTS
 export async function login(params, success, failure) {
     config.headers.Authorization = 'Basic ' + base64.encode(params.username + ":" + params.password);
 
@@ -26,13 +27,36 @@ export async function login(params, success, failure) {
     })
 }
 
+export async function signUp(params, success, failure) {
+    // config.headers.Authorization = 'Basic ' + base64.encode(params.username + ":" + params.password);
+
+    axios.post(url + '/signup', params, config).then((response) => {
+        console.log("this is my signup response: ", response);
+        success();
+    }).catch((error) => {
+        console.log("this is my signup error: ", error);
+        failure();
+    })
+}
+
+// DELETES
+export async function logOut(success, failure) {
+    config.headers.Authorization = "Bearer " + Cookies.get("access_token_cookie");
+
+    axios.delete(url + '/logout', config).then((response) => {
+        success();
+    }).catch((error) => {
+        failure(error);
+    })
+}
+
+// GETS
 export async function getAccountPageData(success, failure) {
 
     config.headers.Authorization = "Bearer " + Cookies.get("access_token_cookie");
-    console.log('this is my headers ', config);
 
     axios.get(url + '/ulinc_configs', config).then((response) => {
-        console.log("this is my response for account page: ", response);
+        // console.log("this is my response for account page: ", response);
         success(response);
     }).catch((error) => {
         console.log("this is my error: ", error);

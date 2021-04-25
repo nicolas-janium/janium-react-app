@@ -17,16 +17,16 @@ const useStyles = makeStyles({
 
 export default function Accounts(props) {
   const classes = useStyles();
-  console.log('thems be my account props: ', props);
+  // console.log('thems be my account props: ', props);
 
   return (
   	<div className={classes.root + " h-100"}>
       <NavBar />
       <br />
-		  <AccountsCard accountsData={accountsData} /> 
+		  <AccountsCard accountsData={props.state} /> 
       <br />
       <div className={classes.tablesWrapper + " d-flex justify-content-around align-items-center px-5 mx-auto"}>
-        <CommunicationStatsTable />
+        <CommunicationStatsTable accountsData={props.state} />
         {/* <AccountDetailsDataList /> */}
       </div>
       
