@@ -48,6 +48,48 @@ blueish gray: #597081 OR #36494E
 }
 
 /* hover on all table rows */
+table tr td {
+  text-align: center;
+}
+table tr td::first-letter {
+  text-transform: uppercase;
+}
 tr:hover {
   background-color: #ecf3fa;
+}
+thead tr th {
+  /* color: #0A369D !important; */
+  color: #FFF !important;
+}
+thead tr:hover {
+  background-color: inherit;
+}
+
+.newConnectionsTable tbody tr:nth-child(odd) {
+  background: #eff7fc;
+}
+.newConnectionsTable tbody tr td {
+  max-width: 75px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.newResponsesTable tbody tr:nth-child(odd) {
+  background: #e9ebe6;
+}
+.campaignsTable tbody tr:nth-child(odd) {
+  background: #FFF;
+}
+.campaignsTable thead tr th {
+  /* color: #0A369D !important; */
+  color: #000 !important;
+}
+.campaignsTable tbody tr td {
+  max-width: 60px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+table tbody tr:nth-child(even) {
+  background: #FFF;
 }

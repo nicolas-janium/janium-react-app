@@ -71,7 +71,7 @@ export default function AccountsCard(props) {
   const classes = useStyles();
 
   const [createUlincData, setUlincData] = React.useState({
-
+    
   });
 
   const [open, setOpen] = React.useState(false);
@@ -153,7 +153,7 @@ export default function AccountsCard(props) {
                 <FormControlLabel
                   control={
                   <Checkbox
-                    checked={state.checkedB}
+                    checked={state.checked}
                     onChange={handleChange}
                     name="termsAcceptance"
                     color="primary"

@@ -24,6 +24,10 @@ const App = () => {
     accountPageData: null
   })
 
+  const [accountHomepage, setAccountHomepageData] = React.useState({
+    accountHomepageData: null
+  })
+
   const getAccountPageData = () => {
     Api.getAccountPageData(accountPageDataSuccess, accountPageDataFailure);
   }
@@ -36,9 +40,27 @@ const App = () => {
     console.log("could not pull data");
   }
 
+  const handleGoToAccountHomepage = (accountData) => { 
+
+    let params = {
+      accountId: accountData
+    }
+  
+    Api.getAccountHomepageData(params, gotoAccountHomepageSuccess, gotoAccountHomepageFail);
+  }
+  
+  const gotoAccountHomepageSuccess = (response) => {
+    setAccountHomepageData({...accountHomepage, accountHomepageData: response.data});
+  }
+  
+  const gotoAccountHomepageFail = () => {
+   console.log('homepage call failed');
+  }
+
   return (
     <Router>
       <div id="app" className="d-flex flex-column h-100">
+        <NavBar setAccountInfo={setAccountInfo}/>
       
           <Switch>
             <Route path="/" exact render={() => {
@@ -56,7 +78,14 @@ const App = () => {
                 return <Accounts accountInfo={accountInfo} state={accountPage.accountPageData}/>
               }
             }} />
-            <Route path="/accountHomePage" component={AccountHomePage} />
+            {/* <Route path="/accountHomePage" component={AccountHomePage} /> */}
+            <Route path="/accountHomePage" render={(prop) => {
+              if (accountHomepage.accountHomepageData == null) {
+                handleGoToAccountHomepage(prop.location.state.account.ulinc_config_id);
+              } else {
+                return <AccountHomePage accountInfo={accountHomepage.accountHomepageData} />
+              }
+            }} />
             <Route path="/settingsPage" component={SettingsPage} />
           </Switch>
       </div> 

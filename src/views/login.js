@@ -21,6 +21,10 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  anchor: {
+    color: '#007bff!important',
+    cursor: 'pointer'
+  },
   inputFields: {
   	minWidth: 275,
   	marginBottom: 15,
@@ -144,6 +148,21 @@ export default function Login(props) {
     });
   }
 
+  const enterPressed = (event) => {
+    var code = event.keyCode || event.which;
+    if (code === 13) { 
+      if (state.signUp) {
+        handleSignUp();
+      } else {
+        handleSignIn();
+      }
+    } 
+  }
+
+  const backToLogin = () => {
+    showSignUp();
+  }
+
   return (
   	<div className={classes.pageWrapper + " d-flex justify-content-center align-items-center h-100"}>
       {
@@ -166,6 +185,7 @@ export default function Login(props) {
               variant="outlined"
               name="password"
               onChange={handleSignUpTextChange}
+              onKeyUp={enterPressed}
               value={signUpData.password}
             />
             {/* <TextField
@@ -181,8 +201,9 @@ export default function Login(props) {
             /> */}
 
           </CardContent>
-          <CardActions className={classes.buttonWrapper}>
-            <Button onClick={handleSignUp} variant="contained" className={classes.buttonClasses}>SIGN UP</Button>
+          <CardActions className={classes.buttonWrapper + " d-flex flex-column"}>
+            <Button onClick={handleSignUp} variant="contained" className={classes.buttonClasses + " mb-3"}>SIGN UP</Button>
+            <a className={classes.anchor} onClick={backToLogin}>Back to login</a>
           </CardActions>
         </Card>
         :
@@ -199,6 +220,7 @@ export default function Login(props) {
               variant="outlined"
               name="password"
               onChange={handleTextChange}
+              onKeyUp={enterPressed}
               value={state.password}
                 />
             <FormControlLabel
@@ -220,7 +242,7 @@ export default function Login(props) {
             <Button onClick={handleSignIn} variant="contained" className={classes.buttonClasses}>Login</Button>
           </CardActions>
           <hr className="w-75"/>
-          <p className="w-100 text-center">Don't have an account? <a variant="body2" onClick={showSignUp}>Sign up</a></p>
+          <p className="w-100 text-center">Don't have an account? <a className={classes.anchor} variant="body2" onClick={showSignUp}>Sign up</a></p>
         </Card>
       }
   		
