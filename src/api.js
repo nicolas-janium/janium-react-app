@@ -41,13 +41,18 @@ export async function signUp(params, success, failure) {
 
 // DELETES
 export async function logOut(success, failure) {
-    config.headers.Authorization = "Bearer " + Cookies.get("access_token_cookie");
 
-    axios.delete(url + '/logout', config).then((response) => {
-        success();
-    }).catch((error) => {
-        failure(error);
-    })
+    Cookies.remove('access_token_cookie');
+    Cookies.remove('refresh_token_cookie');
+
+    success();
+    // config.headers.Authorization = "Bearer " + Cookies.get("access_token_cookie");
+
+    // axios.delete(url + '/logout', config).then((response) => {
+    //     success();
+    // }).catch((error) => {
+    //     failure(error);
+    // })
 }
 
 // GETS
@@ -56,6 +61,19 @@ export async function getAccountPageData(success, failure) {
     config.headers.Authorization = "Bearer " + Cookies.get("access_token_cookie");
 
     axios.get(url + '/ulinc_configs', config).then((response) => {
+        // console.log("this is my response for account page: ", response);
+        success(response);
+    }).catch((error) => {
+        console.log("this is my error: ", error);
+        failure();
+    })
+}
+
+export async function getAccountHomepageData(params, success, failure) {
+
+    config.headers.Authorization = "Bearer " + Cookies.get("access_token_cookie");
+
+    axios.get(url + '/ulinc_config?ulinc_config_id=' + params.accountId, config).then((response) => {
         // console.log("this is my response for account page: ", response);
         success(response);
     }).catch((error) => {

@@ -17,13 +17,14 @@ import * as Api from "../api.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    zIndex: "999"
   },
   appBar: {
     background: "#0A369D"
   },
   menuWrapper: {
-    justifyContent: "space-between"
+    justifyContent: "flex-end"
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -66,11 +67,14 @@ export default function Navbar(props) {
 
   const logOutSuccess = () => {
     let path = `/`; 
+
     props.setAccountInfo({
       isSignedIn: false
     });
     
     history.push(path);
+
+    setAnchorEl(null);
   }
 
   const logOutFailed = (error) => {
@@ -84,38 +88,10 @@ export default function Navbar(props) {
       <AppBar position="static">
         <Toolbar className={classes.menuWrapper + " w-100 pl-0"}>
           <img className={classes.logo} src={Logo} alt="Logo" />
-          {auth && (
-            <div>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={routeChange}>Accounts</MenuItem>
-                <MenuItem onClick={handleClose}>Support</MenuItem>
-                <MenuItem onClick={logOutClickHandler}>Log Out</MenuItem>
-              </Menu>
-            </div>
-          )}
+
+          <MenuItem onClick={routeChange}>Accounts</MenuItem>
+          <MenuItem onClick={handleClose}>Support</MenuItem>
+          <MenuItem onClick={logOutClickHandler}>Log Out</MenuItem>
         </Toolbar>
       </AppBar>
     </div>

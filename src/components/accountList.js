@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { List, ListItem, ListItemText, Divider, Button } from '@material-ui/core';
 import {BrowserRouter as useHistory, Link } from "react-router-dom";
+import * as Api from "../api.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,7 +67,7 @@ export default function AccountList(props) {
           return (
             <div className="accountLink" key={accountInfo.ulinc_config_id}>
               <ListItem button>
-                <Link className={classes.emailStyles} to={{pathname: '/accountHomePage/:' + accountInfo.ulinc_config_id, state:{account: accountInfo}}}>
+                <Link className={classes.emailStyles} to={{pathname: '/accountHomePage/:'+ accountInfo.ulinc_config_id, state:{account: accountInfo}}}>
                   {accountInfo.ulinc_li_email}
                 </Link>
                 <Button variant="contained" className={accountInfo.ulinc_is_active ? classes.buttonActive : classes.buttonInactive}>{accountInfo.ulinc_is_active ? "Active" : "Inactive"}</Button>

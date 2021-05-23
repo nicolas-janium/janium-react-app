@@ -21,7 +21,6 @@ export default function Accounts(props) {
 
   return (
   	<div className={classes.root + " h-100"}>
-      <NavBar />
       <br />
 		  <AccountsCard accountsData={props.state} /> 
       <br />
