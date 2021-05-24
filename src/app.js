@@ -2,8 +2,9 @@ import React from "react";
 import {BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import { NavBar, Footer, Loading } from "./components";
-import { Login, Accounts, AccountHomePage, SettingsPage } from "./views";
+import { Login, Accounts, AccountHomePage, SettingsPage, CampaignPage } from "./views";
 import * as Api from "./api.js";
+import Cookies from 'js-cookie';
 
 
 import "./app.css";
@@ -60,11 +61,13 @@ const App = () => {
   return (
     <Router>
       <div id="app" className="d-flex flex-column h-100">
-        <NavBar setAccountInfo={setAccountInfo}/>
-      
+        
+        {
+          (accountInfo.isSignedIn || Cookies.get('access_token_cookie')) ? <NavBar setAccountInfo={setAccountInfo}/> : ""
+        }
           <Switch>
             <Route path="/" exact render={() => {
-              if (accountInfo.isSignedIn === true) {
+              if (accountInfo.isSignedIn === true || Cookies.get('access_token_cookie')) {
                 return <Redirect to="/accounts" />
               } else {
                 return <Login accountInfo={accountInfo} setAccountInfo={setAccountInfo}/>
@@ -87,6 +90,7 @@ const App = () => {
               }
             }} />
             <Route path="/settingsPage" component={SettingsPage} />
+            <Route path="/campaign" component={CampaignPage} />
           </Switch>
       </div> 
     </Router>

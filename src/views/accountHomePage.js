@@ -23,11 +23,12 @@ export default function AccountHomePage(props) {
     
   	<div className={classes.root + " h-100"}>
       <br />
+      <ConnectorTable campaignsData={props.accountInfo.janium_campaigns}/>
+      <br />
       <NewConnectionsTable connectionData={props.accountInfo.new_connections} />
       <br />
       <NewResponsesTable responseData={props.accountInfo.new_messages} />
-      <br />
-      <ConnectorTable campaignsData={props.accountInfo.janium_campaigns}/>
+      
     </div>
   );
 }

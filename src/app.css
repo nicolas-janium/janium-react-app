@@ -93,3 +93,7 @@ thead tr:hover {
 table tbody tr:nth-child(even) {
   background: #FFF;
 }
+
+.MuiTabs-indicator {
+  background-color: orange;
+}

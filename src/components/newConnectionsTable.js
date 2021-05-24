@@ -67,7 +67,7 @@ export default function NewConnectionsTable(props) {
               {/* <TableCell component="th" scope="row">
                 <Link>{row.title}</Link>
               </TableCell> */}
-              <TableCell align="center"><Link>{row.name}</Link></TableCell>
+              <TableCell align="center"><Link to="">{row.name}</Link></TableCell>
               <TableCell align="center">{row.qualifications ? "Already DQ" : <a href="#">DQ</a>}</TableCell>
               <TableCell className="text-nowrap" align="center">{row.title}</TableCell>
               <TableCell align="center">{row.company}</TableCell>

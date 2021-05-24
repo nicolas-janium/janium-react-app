@@ -26,7 +26,10 @@ const useStyles = makeStyles((theme) => ({
   },
   newCampaignButton: {
     background: "#3f51b5",
-    color: "#FFF"
+    color: "#FFF",
+    '&:focus': {
+        outline: "unset"
+    }
   },
   modal: {
     display: 'flex',
@@ -76,8 +79,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function createData(title, type, status, contacts, connected, replied) {
-  return { title, type, status, contacts, connected, replied };
+function createData(title, type, status, contacts, connected, replied, campaignId) {
+  return { title, type, status, contacts, connected, replied, campaignId };
 }
 
 export default function ConnectorTable(props) {
@@ -113,7 +116,7 @@ export default function ConnectorTable(props) {
   
   if (props.campaignsData.length > 0) {
     props.campaignsData.map((campaignInfo, i) => {
-      rows.push(createData(campaignInfo.janium_campaign_name, campaignInfo.janium_campaign_type, campaignInfo.janium_campaign_is_active, campaignInfo.janium_campaign_contacts, campaignInfo.janium_campaign_connected, campaignInfo.janium_campaign_replied));
+      rows.push(createData(campaignInfo.janium_campaign_name, campaignInfo.janium_campaign_type, campaignInfo.janium_campaign_is_active, campaignInfo.janium_campaign_contacts, campaignInfo.janium_campaign_connected, campaignInfo.janium_campaign_replied, campaignInfo.janium_campaign_id));
     })
   } else {
     hasNoCampaigns = true;
@@ -141,7 +144,7 @@ export default function ConnectorTable(props) {
             {rows.map((row) => (
               <TableRow key={row.title}>
                 <TableCell align="center">
-                  <Link title={row.title}>{row.title}</Link>
+                  <Link title={row.title} to={{pathname: '/campaign/:'+ row.campaignId}}>{row.title}</Link>
                 </TableCell>
                 <TableCell align="center">{row.type}</TableCell>
                 <TableCell align="center">{row.status ? "Active" : "Inactive"}</TableCell>
