@@ -89,8 +89,8 @@ export default function Navbar(props) {
         <Toolbar className={classes.menuWrapper + " w-100 pl-0"}>
           <img className={classes.logo} src={Logo} alt="Logo" />
 
-          <MenuItem onClick={routeChange}>Accounts</MenuItem>
-          <MenuItem onClick={handleClose}>Support</MenuItem>
+          <MenuItem onClick={routeChange}>Account</MenuItem>
+          {/* <MenuItem onClick={handleClose}>Support</MenuItem> */}
           <MenuItem onClick={logOutClickHandler}>Log Out</MenuItem>
         </Toolbar>
       </AppBar>

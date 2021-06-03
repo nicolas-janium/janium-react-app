@@ -1,5 +1,6 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
 
 import { NavBar, Footer, Loading } from "./components";
 import { Login, Accounts, AccountHomePage, SettingsPage, CampaignPage } from "./views";
@@ -10,7 +11,15 @@ import Cookies from 'js-cookie';
 import "./app.css";
 import { SettingsInputAntennaTwoTone } from "@material-ui/icons";
 
+const useStyles = makeStyles({
+  root: {
+    
+  }
+});
+
 const App = () => {
+
+  const classes = useStyles();
   // const { isLoading } = useAuth0();
 
   // if (isLoading) {
@@ -60,7 +69,7 @@ const App = () => {
 
   return (
     <Router>
-      <div id="app" className="d-flex flex-column h-100">
+      <div id="app" className={classes.root + " d-flex flex-column"}>
         
         {
           (accountInfo.isSignedIn || Cookies.get('access_token_cookie')) ? <NavBar setAccountInfo={setAccountInfo}/> : ""

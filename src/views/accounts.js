@@ -8,7 +8,7 @@ let accountsData = require('../test_data/account.json');
 
 const useStyles = makeStyles({
   root: {
-    background: "#597081"
+    
   }, 
   tablesWrapper: {
     maxWidth: 1400

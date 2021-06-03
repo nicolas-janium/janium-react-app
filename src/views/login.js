@@ -12,9 +12,6 @@ const useStyles = makeStyles({
     paddingBottom: 20,
     boxshadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'
   },
-  pageWrapper: {
-  	background: '#597081'
-  },
   title: {
     fontSize: 14,
   },
@@ -164,7 +161,7 @@ export default function Login(props) {
   }
 
   return (
-  	<div className={classes.pageWrapper + " d-flex justify-content-center align-items-center h-100"}>
+  	<div className="d-flex justify-content-center align-items-center h-100">
       {
         state.signUp ?
         <Card className={classes.root} variant="outlined">

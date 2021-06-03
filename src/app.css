@@ -1,3 +1,6 @@
+body {
+  background: "#F5F5F5"
+}
 .next-steps .fa-link {
   margin-right: 5px;
 }
@@ -33,6 +36,10 @@
 .result-block-container .result-block {
   opacity: 1;
 }
+div[data-editable="false"] {
+  filter: opacity(0.5);
+  pointer-events: none;
+}
 
 
 /*New Code starts here*/
@@ -46,8 +53,22 @@ blueish gray: #597081 OR #36494E
 .accountLink:last-child .accountLinkDivider {
   display: none;
 }
+.greenCheck {
+  color: #4ba45d;
+}
+.redX {
+  color: #c7433d;
+}
 
 /* hover on all table rows */
+.tableBoxShadow {
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%) !important;
+}
+.disableTableRow {
+  filter: grayscale(1);
+  transform: scale(1);
+  pointer-events: none;
+}
 table tr td {
   text-align: center;
 }

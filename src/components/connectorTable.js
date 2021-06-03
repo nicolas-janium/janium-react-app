@@ -11,15 +11,21 @@ import { Card, CardActions, CardContent, CardHeader, Button, Typography, Switch,
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
-  tableWrapper: {
+  tableWrapperDiv: {
     maxWidth: 1100,
+    margin: "auto"
+  },
+  tableWrapper: {
     background: "transparent",
-    boxShadow: "unset"
+    boxShadow: "unset",
+    position: "relative",
+    display: "table",
+    borderRadius: "7px",
+    overflow: "hidden"
   },
   table: {
     minWidth: 600,
-    borderRadius: "7px",
-    overflow: "hidden"
+    borderRadius: "7px"
   },
   tableHeaders: {
     background: "#FFF"
@@ -123,12 +129,12 @@ export default function ConnectorTable(props) {
   }
 
   return (
-    <div>
-      <TableContainer component={Paper} className={classes.tableWrapper + " m-auto"}>
-        <div className="d-flex justify-content-between pb-1">
-          <div className="ml-1 mt-2 h4">Campaigns</div>
-          <Button className={classes.newCampaignButton + " px-3"} size="small" onClick={handleOpen}>New Campaign</Button>
-        </div>
+    <div className={classes.tableWrapperDiv}>
+      <div className="d-flex justify-content-between pb-1">
+        <div className="ml-1 mt-2 h4">Campaigns</div>
+        <Button className={classes.newCampaignButton + " px-3"} size="small" onClick={handleOpen}>New Campaign</Button>
+      </div>
+      <TableContainer component={Paper} className={classes.tableWrapper + " tableBoxShadow m-auto"}>
         <Table className={classes.table + " campaignsTable"} aria-label="simple table">
           <TableHead className={classes.tableHeaders}>
             <TableRow>

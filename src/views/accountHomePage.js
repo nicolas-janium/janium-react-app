@@ -21,7 +21,7 @@ export default function AccountHomePage(props) {
 
   return (
     
-  	<div className={classes.root + " h-100"}>
+  	<div className="h-100">
       <br />
       <ConnectorTable campaignsData={props.accountInfo.janium_campaigns}/>
       <br />

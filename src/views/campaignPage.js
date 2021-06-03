@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Typography, Box, Paper, Tabs, Tab, Card, CardHeader, CardActions, CardContent, Button, TextField, Checkbox, FormControlLabel, Link }  from '@material-ui/core';
+import { AppBar, Typography, Box, Paper, Tabs, Tab, Card, CardHeader, CardActions, CardContent, Button, TextField, Checkbox, FormControlLabel, Link, Select, FormControl, MenuItem }  from '@material-ui/core';
 import {BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import { NavBar, AccountsCard, CommunicationStatsTable, AccountDetailsDataList } from "../components";
+import { NavBar, AccountsCard, CommunicationStatsTable, AccountDetailsDataList, CampaignContacts, CampaignMessaging } from "../components";
 
 // let accountsData = require('../test_data/account.json');
 
@@ -42,20 +42,18 @@ function a11yProps(index) {
 
 const useStyles = makeStyles({
   root: {
-    background: "#597081",
     flexGrow: 1
   }, 
   appBarStyles: {
       width: "max-content",
+      boxShadow: "unset !important"
   },
   tabButtons: {
-      color: "#FFF",
+      color: "#000",
       '&:focus': {
           outline: "unset"
       }
   }
-
-
 });
 
 export default function CampaignPage(props) {
@@ -78,10 +76,10 @@ export default function CampaignPage(props) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Item One
+        <CampaignContacts />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <CampaignMessaging />
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three

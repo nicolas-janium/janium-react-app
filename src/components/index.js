@@ -11,5 +11,11 @@ import NewConnectionsTable from "./newConnectionsTable";
 import NewResponsesTable from "./newResponsesTable";
 import CommunicationStatsTable from "./communicationStatsTable";
 import AccountDetailsDataList from "./accountDetailsDataList";
+import CampaignContacts from "./campaignContacts";
+import CampaignContactsTable from "./campaignContactsTable";
+import CampaignMessaging from "./campaignMessaging";
+import EmailMessageDiv from "./emailMessageDiv";
+import LinkedInMessageDiv from "./linkedinMessageDiv";
 
-export { NavBar, AccountsCard, AccountList, ConnectorTable, NewConnectionsTable, NewResponsesTable, CommunicationStatsTable, AccountDetailsDataList };
+export { NavBar, AccountsCard, AccountList, ConnectorTable, NewConnectionsTable, NewResponsesTable, CommunicationStatsTable, AccountDetailsDataList,
+    CampaignContacts, CampaignContactsTable, CampaignMessaging, EmailMessageDiv, LinkedInMessageDiv };
