@@ -18,10 +18,13 @@ import * as Api from "../api.js";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    zIndex: "999"
+    zIndex: "999",
+    background: "#74c69d"
   },
   appBar: {
-    background: "#0A369D"
+    // background: "#0A369D"
+    background: "#74c69d",
+    
   },
   menuWrapper: {
     justifyContent: "flex-end"

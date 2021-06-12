@@ -59,6 +59,9 @@ blueish gray: #597081 OR #36494E
 .redX {
   color: #c7433d;
 }
+button { 
+  text-transform: unset !important;
+}
 
 /* hover on all table rows */
 .tableBoxShadow {
@@ -126,6 +129,25 @@ table tbody tr:nth-child(even) {
   height: 132px;
   border: 2px solid #74c69d;
 }
+.ck.ck-content.ck-focused {
+  border: 2px solid #74c69d !important;
+}
 .ck.ck-content p {
   margin-top: 4px !important;
+}
+
+/* switches */
+.MuiSwitch-colorPrimary.Mui-checked {
+  color:#FFF !important;
+}
+.MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track {
+  background: #49a160 !important;
+}
+.MuiSwitch-colorPrimary.Mui-checked:hover {
+  background-color: rgba(116, 198, 157, 0.1) !important;
+}
+
+/* navbar */
+.MuiAppBar-colorPrimary {
+  background: #74C69D !important;
 }

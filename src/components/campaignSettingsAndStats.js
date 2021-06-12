@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     buttonClass: {
         width: "fit-content",
         background: "#ff8f80",
-        color: "#000",
+        color: "#FFF",
         fontWeight: "400",
         textTransform: "capitalize",
         "&:hover": {
@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
     secondaryButton: {
         background: "#74C69D",
+        color: "#FFF",
         "&:hover": {
             background: "#63bf91"
         }

@@ -5,6 +5,7 @@ import { Typography, TextField } from '@material-ui/core';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
 import PropTypes from 'prop-types';
+import { Translate } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,14 +22,16 @@ const useStyles = makeStyles((theme) => ({
         background: "#FFF",
         borderRadius: 4,
         maxWidth: 90,
-        border: "2px solid #74c69d",
         "& .MuiOutlinedInput-root": {
-        //     "& fieldset": { 
-        //         borderColor: "#000fff"
-        //     },
+            "& fieldset": { 
+                border: "2px solid #74c69d"
+            },
+            '&:hover fieldset': {
+                borderColor: '#60be8f !important',
+            },
             "&.Mui-focused fieldset": {
                 borderColor: "#74c69d",
-                borderWidth: "2px"
+                outline: "unset"
             }
         }
     },

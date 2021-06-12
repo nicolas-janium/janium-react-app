@@ -8,7 +8,19 @@ const useStyles = makeStyles((theme) => ({
     textFieldStyles: {
         background: "#FFF",
         borderRadius: 4,
-        maxWidth: 90
+        maxWidth: 90,
+        "& .MuiOutlinedInput-root": {
+            "& fieldset": { 
+                border: "2px solid #6199a5"
+            },
+            '&:hover fieldset': {
+                borderColor: '#548692 !important',
+            },
+            "&.Mui-focused fieldset": {
+                borderColor: "#6199a5",
+                outline: "unset"
+            }
+        }
     },
     textAreaStyles: {
         minWidth: 650,
@@ -18,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
         border: "2px solid #6199a5",
         "&:focus": {
             outline: "unset",
-            border: "unset"
+            border: "2px solid #6199a5 !important",
+            boxShadow: "rgba(0, 0, 0, 0.1) 2px 2px 3px 0px inset, rgb(4, 20, 51) 0px 0px 0px 0px"
         }
     }
 }));

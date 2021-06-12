@@ -202,7 +202,7 @@ export default function ConnectorTable(props) {
                       color="primary"
                     />
                   }
-                  label={<Typography className={classes.switchText}>Active?</Typography>}
+                  label={<Typography className={classes.switchText}>Active</Typography>}
                 />
               </CardContent>
               <CardActions className={classes.buttonWrapper}>
