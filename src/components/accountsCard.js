@@ -94,7 +94,7 @@ export default function AccountsCard(props) {
 
   return (
     <div>
-      <Card className={classes.root + " m-auto"}>
+      <Card className={classes.root + " m-auto tableBoxShadow"}>
         <CardHeader 
           className={classes.cardHeader} 
           boxshadow={3}

@@ -27,6 +27,12 @@ const useStyles = makeStyles((theme) => ({
     },
     buttonClass: {
         width: "fit-content"
+    },
+    buttonClassTwo: {
+        background: "#74C69D",
+        "&:hover": {
+            background: "#63bf91"
+        }
     }
 }));
 
@@ -125,7 +131,7 @@ export default function CampaignContacts(props) {
                         label={<Typography className={classes.switchText}>Backdate Steps?</Typography>}
                     />
                     <br />
-                    <Button variant="contained" color="primary" className={classes.buttonClass + " mt-3"}>
+                    <Button variant="contained" color="#000" className={classes.buttonClass + " mt-3 " + classes.buttonClassTwo}>
                         Add Ulinc Campaign(s)
                     </Button>
                 </div>

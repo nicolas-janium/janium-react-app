@@ -12,6 +12,9 @@ const useStyles = makeStyles({
     paddingBottom: 20,
     boxshadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'
   },
+  wrapper: {
+    minHeight: "100vh"
+  },
   title: {
     fontSize: 14,
   },
@@ -161,10 +164,10 @@ export default function Login(props) {
   }
 
   return (
-  	<div className="d-flex justify-content-center align-items-center h-100">
+  	<div className={classes.wrapper + " d-flex justify-content-center align-items-center h-100"}>
       {
         state.signUp ?
-        <Card className={classes.root} variant="outlined">
+        <Card className={classes.root + " tableBoxShadow"} variant="outlined">
           <CardHeader className="text-center" titleTypographyProps={{variant:'h5'}} title="Sign Up for Janium" />
           <CardContent className="d-flex flex-column align-items-center">
             <TextField className={classes.inputFields} onChange={handleSignUpTextChange} label="First Name" type="text" variant="outlined" name="first_name" value={signUpData.first_name} />
@@ -204,8 +207,8 @@ export default function Login(props) {
           </CardActions>
         </Card>
         :
-        <Card className={classes.root} variant="outlined">
-          <CardHeader className="text-center" titleTypographyProps={{variant:'h5'}} title="Log in to Janium" />
+        <Card className={classes.root + " tableBoxShadow"} variant="outlined">
+          <CardHeader className="text-center" titleTypographyProps={{variant:'h5'}} title="Login to Janium" />
           <CardContent className="d-flex flex-column align-items-center">
             <TextField className={classes.inputFields} onChange={handleTextChange} label="Username" type="text" variant="outlined" name="username" value={state.username} />
             <TextField

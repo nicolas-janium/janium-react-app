@@ -1,21 +1,36 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { Typography, TextField } from '@material-ui/core';
 // import React, { Component } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
     root: {
     },
-    divWrapper: {
-        minWidth: 550,
+    divWrapperRight: {
+        minWidth: 650,
         marginLeft: "auto"
+    },
+    divWrapperLeft: {
+        minWidth: 650,
+        marginRight: "auto"
     },
     textFieldStyles: {
         background: "#FFF",
         borderRadius: 4,
-        maxWidth: 90
+        maxWidth: 90,
+        border: "2px solid #74c69d",
+        "& .MuiOutlinedInput-root": {
+        //     "& fieldset": { 
+        //         borderColor: "#000fff"
+        //     },
+            "&.Mui-focused fieldset": {
+                borderColor: "#74c69d",
+                borderWidth: "2px"
+            }
+        }
     },
     textAreaStyles: {
         minWidth: 400,
@@ -23,14 +38,20 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 7,
         padding: "5px 8px",
         "&:focus": {
-            outline: "unset"
+            outline: "unset",
+            border: "unset"
         }
     },
     emailSubjectStyles: {
-        minWidth: 200
+        minWidth: 275
     },
     richTextEditor: {
         background: "#FFF"
+    },
+    cssOutlinedInput: {
+        '&$cssFocused $notchedOutline': {
+          borderColor: `yellow !important`,
+        }
     }
 }));
 
@@ -38,13 +59,18 @@ export default function EmailMessageDiv(props) {
     const classes = useStyles();
 
     return (
-        <div className={classes.divWrapper}>
+        <div className={props.leftSide ? classes.divWrapperLeft : classes.divWrapperRight}>
             <Typography variant="subtitle1" gutterBottom>
                 {props.stepTitle}
             </Typography>
             <div className="d-flex justify-content-between">
-                <TextField className={classes.textFieldStyles + " " + classes.emailSubjectStyles} id="outlined-basic" label={props.emailSubject} variant="outlined" size="small" />
-                <TextField className={classes.textFieldStyles} id="outlined-basic" label="LI Delay" variant="outlined" size="small" />
+                <TextField 
+                    className={classes.textFieldStyles + " " + classes.emailSubjectStyles} 
+                    id="outlined-basic" disableUnderline={true} 
+                    label={props.emailSubject} variant="outlined" 
+                    size="small" 
+                />
+                <TextField className={classes.textFieldStyles} id="outlined-basic" label="EM Delay" variant="outlined" size="small" />
             </div>
 
             <CKEditor

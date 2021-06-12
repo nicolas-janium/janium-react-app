@@ -124,5 +124,8 @@ table tbody tr:nth-child(even) {
   border-radius: 7px !important;
   margin-top: 20px !important;
   height: 132px;
-  border: 1px solid #767676;
+  border: 2px solid #74c69d;
+}
+.ck.ck-content p {
+  margin-top: 4px !important;
 }

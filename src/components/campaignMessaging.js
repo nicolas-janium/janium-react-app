@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
     },
     messagesContainer: {
-        background: "linear-gradient(#74C69D, #FFF)",
+        background: "linear-gradient(#f3f3f6, #FFF)",
         marginTop: 20,
         borderRadius: 7,
         padding: "10px 8px",
@@ -26,7 +26,7 @@ export default function CampaignMessaging(props) {
 
     return (
         <div>
-            <div className="w-50">
+            <div className={classes.messagesContainer + " tableBoxShadow"}>
                 <Typography variant="h6" gutterBottom>
                     Step 1: LinkedIn Connection (Initiated by Ulinc) - Day 0
                 </Typography>
@@ -35,8 +35,7 @@ export default function CampaignMessaging(props) {
                     campaign in Ulinc and then associate this Janium campaign to that Ulinc campaign on the contacts
                     tab (to the left). Once associated, Janium will take care of the rest of the steps after connection.
                 </Typography>
-            </div>
-            <div className={classes.messagesContainer + " tableBoxShadow"}>
+
                 <LinkedInMessageDiv stepTitle="Step 2: Linkedin Welcome Message" placeholderText="Enter LinkedIn Welcome Message text here..." />
                 <br />
                 <EmailMessageDiv stepTitle="Step 3: Email Follow-up #1" emailSubject="Email #1 Subject" placeholderText="Enter Email Follow-up #1 message text here..." />

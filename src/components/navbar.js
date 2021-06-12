@@ -91,7 +91,7 @@ export default function Navbar(props) {
 
           <MenuItem onClick={routeChange}>Account</MenuItem>
           {/* <MenuItem onClick={handleClose}>Support</MenuItem> */}
-          <MenuItem onClick={logOutClickHandler}>Log Out</MenuItem>
+          <MenuItem onClick={logOutClickHandler}>Logout</MenuItem>
         </Toolbar>
       </AppBar>
     </div>

@@ -11,12 +11,14 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 90
     },
     textAreaStyles: {
-        minWidth: 400,
+        minWidth: 650,
         marginTop: "20px !important",
         borderRadius: 7,
         padding: "5px 8px",
+        border: "2px solid #6199a5",
         "&:focus": {
-            outline: "unset"
+            outline: "unset",
+            border: "unset"
         }
     }
 }));

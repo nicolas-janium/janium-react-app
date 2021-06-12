@@ -173,8 +173,8 @@ const rows = [
 
 export default function CampaignContactsTable() {
     return (
-        <div className="mt-5" style={{ height: 550, width: '100%' }}>
-            <DataGrid rows={rows} columns={columns} style={{ background: "#FFF" }} className="tableBoxShadow" />
+        <div className="mt-5" style={{ height:'100%', width: '100%' }}>
+            <DataGrid autoHeight={true} rows={rows} columns={columns} style={{ background: "#FFF" }} className="tableBoxShadow" />
         </div>
     );
 }

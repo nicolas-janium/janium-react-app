@@ -64,7 +64,7 @@ export default function NewResponsesTable(props) {
 
   if (props.responseData.length > 0) {
     props.responseData.map((messagesInfo, i) => {
-      rows.push(createData(messagesInfo.full_name, messagesInfo.title, messagesInfo.company, messagesInfo.location, messagesInfo.janium_campaign_name, messagesInfo.msg_timestamp));
+      rows.push(createData(messagesInfo.full_name, messagesInfo.continue, messagesInfo.title, messagesInfo.company, messagesInfo.location, messagesInfo.janium_campaign_name, messagesInfo.msg_timestamp));
   })
   } else {
     hasNoNewConnections = true;
@@ -78,7 +78,7 @@ export default function NewResponsesTable(props) {
           <TableHead className={classes.tableHeaders}>
             <TableRow>
               <TableCell align="center">Name/LinkedIn</TableCell>
-              {/* <TableCell align="right">Continue</TableCell> */}
+              <TableCell align="center">Continue</TableCell>
               <TableCell align="center">Title</TableCell>
               <TableCell align="center">Company</TableCell>
               <TableCell align="center">Location</TableCell>
@@ -91,7 +91,7 @@ export default function NewResponsesTable(props) {
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
               <TableRow key={row.title}>
                 <TableCell align="center"><Link>{row.name}</Link></TableCell>
-                {/* <TableCell align="center">{row.continue}</TableCell> */}
+                <TableCell align="center">{row.continue}</TableCell>
                 <TableCell className="text-nowrap" align="center">{row.title}</TableCell>
                 <TableCell align="center">{row.company}</TableCell>
                 <TableCell className="text-nowrap" align="center">{row.location}</TableCell>

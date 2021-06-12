@@ -82,7 +82,7 @@ export default function NewConnectionsTable(props) {
           <TableHead className={classes.tableHeaders}>
             <TableRow>
               <TableCell align="center" className={classes.fontWhite}>Name/LinkedIn</TableCell>
-              <TableCell align="center">Qualifications</TableCell>
+              <TableCell align="center">Qualification</TableCell>
               <TableCell align="center">Title</TableCell>
               <TableCell align="center">Company</TableCell>
               <TableCell align="center">Location</TableCell>

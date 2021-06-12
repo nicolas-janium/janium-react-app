@@ -14,8 +14,10 @@ import AccountDetailsDataList from "./accountDetailsDataList";
 import CampaignContacts from "./campaignContacts";
 import CampaignContactsTable from "./campaignContactsTable";
 import CampaignMessaging from "./campaignMessaging";
+import CampaignMessagingDataEnrich from "./campaignMessagingDataEnrich";
+import CampaignSettingsAndStats from "./campaignSettingsAndStats";
 import EmailMessageDiv from "./emailMessageDiv";
 import LinkedInMessageDiv from "./linkedinMessageDiv";
 
 export { NavBar, AccountsCard, AccountList, ConnectorTable, NewConnectionsTable, NewResponsesTable, CommunicationStatsTable, AccountDetailsDataList,
-    CampaignContacts, CampaignContactsTable, CampaignMessaging, EmailMessageDiv, LinkedInMessageDiv };
+    CampaignContacts, CampaignContactsTable, CampaignMessaging, EmailMessageDiv, LinkedInMessageDiv, CampaignMessagingDataEnrich, CampaignSettingsAndStats };
