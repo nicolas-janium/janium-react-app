@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
         "&:hover": {
             background: "#63bf91"
         }
+    },
+    tableWrapper: {
+        maxWidth: 750
     }
 }));
 
@@ -160,7 +163,7 @@ export default function CampaignContacts(props) {
                         Retrieve/Refresh Ulinc Campaigns
                     </Button>
                     <br />
-                    <TableContainer component={Paper} className={classes.tableWrapper + " tableBoxShadow m-auto"}>
+                    <TableContainer component={Paper} className={classes.tableWrapper + " tableBoxShadow"}>
                         <Table className={classes.table + " campaignsTable"} aria-label="simple table">
                             <TableHead className={classes.tableHeaders}>
                                 <TableRow>

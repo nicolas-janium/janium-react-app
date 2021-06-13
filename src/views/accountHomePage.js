@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow }  from '@material-ui/core';
-import { NavBar, ConnectorTable, NewConnectionsTable, NewResponsesTable } from "../components";
+import { NavBar, ConnectorTable, NewConnectionsTable, NewResponsesTable, PhoneTaskTable } from "../components";
 
 const useStyles = makeStyles({
   root: {
@@ -28,7 +28,8 @@ export default function AccountHomePage(props) {
       <NewConnectionsTable connectionData={props.accountInfo.new_connections} />
       <br />
       <NewResponsesTable responseData={props.accountInfo.new_messages} />
-      
+      <br />
+      <PhoneTaskTable phoneTaskData={props.accountInfo.vm_tasks} />
     </div>
   );
 }

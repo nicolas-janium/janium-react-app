@@ -104,6 +104,9 @@ thead tr:hover {
 .campaignsTable tbody tr:nth-child(odd) {
   background: #FFF;
 }
+.phoneTaskTable tbody tr:nth-child(odd) {
+  background: #e4d8dd;
+}
 .campaignsTable thead tr th {
   /* color: #0A369D !important; */
   color: #000 !important;

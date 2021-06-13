@@ -26,30 +26,29 @@ const useStyles = makeStyles({
   },
   table: {
     minWidth: 650,
-    border: "3px solid #535a49",
-    borderRadius: "7px",
-    paddingBottom: "3px"
+    border: "3px solid #533740",
+    borderRadius: "7px"
   },
   tableHeaders: {
-    background: "#535a49"
+    background: "#533740"
   },
-  pagination: {
-    background: "#535a49",
-    color: "#FFF"
-  },
-  continue: {
-    color: "#6b9d5b",
+  dq: {
+    color: "#ff3a2c",
     cursor: "pointer",
     textDecoration: "underline"
   },
+  pagination: {
+    background: "#533740",
+    color: "#FFF"
+  }
 });
 
-function createData(name, title, company, location, campaign, connectionDate) {
-  return { name, title, company, location, campaign, connectionDate };
+function createData(name, title, company, location, phone, campaign) {
+  return { name, title, company, location, phone, campaign };
 }
 
 
-export default function NewResponsesTable(props) {
+export default function PhoneTaskTable(props) {
   const classes = useStyles();
 
   const [page, setPage] = React.useState(0);
@@ -65,44 +64,43 @@ export default function NewResponsesTable(props) {
   };
 
   const rows = [];
-  let hasNoNewConnections = false;
+  let hasNoPhoneTasks = false;
 
-  if (props.responseData.length > 0) {
-    props.responseData.map((messagesInfo, i) => {
-      rows.push(createData(messagesInfo.full_name, messagesInfo.title, messagesInfo.company, messagesInfo.location, messagesInfo.janium_campaign_name, messagesInfo.msg_timestamp));
-  })
+  if (props.phoneTaskData.length > 0) {
+    props.phoneTaskData.map((taskInfo, i) => {
+      rows.push(createData(taskInfo.full_name, taskInfo.title, taskInfo.company, taskInfo.location, taskInfo.phone, taskInfo.ulinc_campaign_name));
+    })
   } else {
-    hasNoNewConnections = true;
+    hasNoPhoneTasks = true;
   }
 
   return (
     <div className={classes.tableWrapperDiv}>
-      <div className={classes.tableName + " ml-1 h4"}>New Responses</div>
+      <div className={classes.tableName + " ml-1 h4"}>New Connections</div>
       <TableContainer component={Paper} className={classes.tableWrapper + " tableBoxShadow m-auto"}>
-        <Table className={classes.table + " newResponsesTable"} aria-label="simple table">
+        <Table className={classes.table + " phoneTaskTable"} aria-label="simple table">
           <TableHead className={classes.tableHeaders}>
             <TableRow>
-              <TableCell align="center">Name/LinkedIn</TableCell>
-              <TableCell align="center">Continue</TableCell>
+              <TableCell align="center" className={classes.fontWhite}>Name/LinkedIn</TableCell>
               <TableCell align="center">Title</TableCell>
               <TableCell align="center">Company</TableCell>
               <TableCell align="center">Location</TableCell>
+              <TableCell align="center">Phone</TableCell>
               <TableCell align="center">Campaign</TableCell>
-              {/* <TableCell align="center">Source</TableCell> */}
-              <TableCell align="center">Timestamp</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-              <TableRow key={row.title}>
-                <TableCell align="center"><Link>{row.name}</Link></TableCell>
-                <TableCell align="center"><a href="#" className={classes.continue}>continue</a></TableCell>
+              <TableRow key={row.title} className={row.qualifications ? "disableTableRow" : ""}>
+                {/* <TableCell component="th" scope="row">
+                  <Link>{row.title}</Link>
+                </TableCell> */}
+                <TableCell align="center"><Link to="">{row.name}</Link></TableCell>
                 <TableCell className="text-nowrap" align="center">{row.title}</TableCell>
                 <TableCell align="center">{row.company}</TableCell>
                 <TableCell className="text-nowrap" align="center">{row.location}</TableCell>
+                <TableCell className="text-nowrap" align="center">{row.phone}</TableCell>
                 <TableCell className="text-nowrap" align="center">{row.campaign}</TableCell>
-                {/* <TableCell align="center">{row.continue}</TableCell> */}
-                <TableCell className="text-nowrap" align="center">{row.connectionDate}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -118,7 +116,6 @@ export default function NewResponsesTable(props) {
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
       </TableContainer>
-      
     </div>
   );
 }

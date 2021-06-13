@@ -69,7 +69,7 @@ const App = () => {
 
   return (
     <Router>
-      <div id="app" className={classes.root + " d-flex flex-column"}>
+      <div id="app" className={classes.root + " d-flex flex-column pb-3"}>
         
         {
           (accountInfo.isSignedIn || Cookies.get('access_token_cookie')) ? <NavBar setAccountInfo={setAccountInfo}/> : ""
