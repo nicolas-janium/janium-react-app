@@ -200,7 +200,7 @@ export default function CampaignContacts(props) {
       }
 
       function refreshData() {
-
+        window.location.reload();
       }
 
       
