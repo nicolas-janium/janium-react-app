@@ -2,7 +2,7 @@ import axios from 'axios';
 import base64 from 'react-native-base64';
 import Cookies from 'js-cookie';
 
-const url = "https://backend-dot-foundation-staging-305217.uc.r.appspot.com/api/v1";
+const url = "https://foundation-staging-305217.uc.r.appspot.com/api/v1";
 let config = {
     headers: {
         "withCredentials": true,
@@ -74,6 +74,46 @@ export async function getAccountHomepageData(params, success, failure) {
     config.headers.Authorization = "Bearer " + Cookies.get("access_token_cookie");
 
     axios.get(url + '/ulinc_config?ulinc_config_id=' + params.accountId, config).then((response) => {
+        // console.log("this is my response for account page: ", response);
+        success(response);
+    }).catch((error) => {
+        console.log("this is my error: ", error);
+        failure();
+    })
+}
+
+export async function getCampaignContacts(params, success, failure) {
+
+    config.headers.Authorization = "Bearer " + Cookies.get("access_token_cookie");
+
+    axios.get(url + '/janium_campaign?janium_campaign_id=' + params.janiumCampaignId, config).then((response) => {
+        // console.log("this is my response for account page: ", response);
+        success(response);
+    }).catch((error) => {
+        console.log("this is my error: ", error);
+        failure();
+    })
+}
+
+//PUTS
+export async function updateAssignUlincCampaigns(body, success, failure) {
+
+    config.headers.Authorization = "Bearer " + Cookies.get("access_token_cookie");
+
+    axios.put(url + '/ulinc_campaign', body, config).then((response) => {
+        // console.log("this is my response for account page: ", response);
+        success(response);
+    }).catch((error) => {
+        console.log("this is my error: ", error);
+        failure();
+    })
+}
+
+export async function updateJaniumCampaignStatus(body, success, failure) {
+
+    config.headers.Authorization = "Bearer " + Cookies.get("access_token_cookie");
+
+    axios.put(url + '/janium_campaign', body, config).then((response) => {
         // console.log("this is my response for account page: ", response);
         success(response);
     }).catch((error) => {

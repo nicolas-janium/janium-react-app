@@ -1,3 +1,6 @@
+body {
+  background: "#F5F5F5"
+}
 .next-steps .fa-link {
   margin-right: 5px;
 }
@@ -33,6 +36,10 @@
 .result-block-container .result-block {
   opacity: 1;
 }
+div[data-editable="false"] {
+  filter: opacity(0.5);
+  pointer-events: none;
+}
 
 
 /*New Code starts here*/
@@ -46,8 +53,31 @@ blueish gray: #597081 OR #36494E
 .accountLink:last-child .accountLinkDivider {
   display: none;
 }
+.greenCheck {
+  color: #4ba45d;
+}
+.redX {
+  color: #c7433d;
+}
+.green {
+  color: #74c69d !important;
+}
+.red {
+  color: #ff3a2c !important;
+}
+button { 
+  text-transform: unset !important;
+}
 
 /* hover on all table rows */
+.tableBoxShadow {
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%) !important;
+}
+.disableTableRow {
+  filter: grayscale(1);
+  transform: scale(1);
+  pointer-events: none;
+}
 table tr td {
   text-align: center;
 }
@@ -74,11 +104,23 @@ thead tr:hover {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.newResponsesTable tbody tr td {
+  max-width: 75px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .newResponsesTable tbody tr:nth-child(odd) {
   background: #e9ebe6;
 }
 .campaignsTable tbody tr:nth-child(odd) {
   background: #FFF;
+}
+.phoneTaskTable tbody tr:nth-child(odd) {
+  background: #e4d8dd;
+}
+.commStatsTable tbody tr:nth-child(odd) {
+  background: rgb(116 198 157 / 10%);
 }
 .campaignsTable thead tr th {
   /* color: #0A369D !important; */
@@ -92,4 +134,48 @@ thead tr:hover {
 }
 table tbody tr:nth-child(even) {
   background: #FFF;
+}
+
+.MuiTabs-indicator {
+  background-color: orange;
+}
+/* ckeditor styles */
+.ck.ck-content {
+  background: #FFF !important;
+  border-radius: 7px !important;
+  margin-top: 20px !important;
+  height: 132px;
+  border: 2px solid #74c69d;
+}
+.ck.ck-content.ck-focused {
+  border: 2px solid #74c69d !important;
+}
+.ck.ck-content p {
+  margin-top: 4px !important;
+}
+
+/* switches */
+.MuiSwitch-colorPrimary.Mui-checked {
+  color:#FFF !important;
+}
+.MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track {
+  background: #49a160 !important;
+}
+.MuiSwitch-colorPrimary.Mui-checked:hover {
+  background-color: rgba(116, 198, 157, 0.1) !important;
+}
+
+/* navbar */
+.MuiAppBar-colorPrimary {
+  background: #74C69D !important;
+}
+
+/*  accordion */
+.accordionStyles {
+  box-shadow: unset !important;
+  border: unset !important;
+  margin: auto !important;
+}
+.MuiAccordion-root:before {
+  background-color: unset !important;
 }

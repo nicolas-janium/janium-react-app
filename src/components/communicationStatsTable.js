@@ -10,20 +10,39 @@ import Paper from '@material-ui/core/Paper';
 import TablePagination from '@material-ui/core/TablePagination';
 
 const useStyles = makeStyles({
+  tableWrapperDiv: {
+    maxWidth: 750
+  },
   tableWrapper: {
-    maxWidth: 650
+    background: "transparent",
+    boxShadow: "unset",
+    position: "relative",
+    display: "table",
+    borderRadius: "7px",
+    overflow: "hidden",
+    width: "100%"
   },
   table: {
-    minWidth: 650
+    width: "100%",
+    border: "3px solid #74c69d",
+    borderRadius: "7px"
+  },
+  tableHeaders: {
+    background: "#74c69d",
+    color: "#FFF"
   },
   taskInQueue: {
     fontSize: 12,
-
   }
 });
 
 function createData(actionType, twentyFourHr, seventyTwoHr, week, month, total) {
   return { actionType, twentyFourHr, seventyTwoHr, week, month, total };
+}
+
+function removeUnderscores(str) {
+  let string = str;
+  return string.replace(/_/g, ' ');
 }
 
 
@@ -57,43 +76,44 @@ export default function CommunicationStatsTable(props) {
   }
 
   return (
-    <Paper>
+    <div>
     {
       isEmptyAccount ?
       // do nothing
       <div></div>
       :
-        <TableContainer component={Paper} className={classes.tableWrapper}>
-          <div className="d-flex justify-content-between mx-2 mt-2 h4">Data for { props.accountsData[0].ulinc_li_email } <span className={classes.taskInQueue}>Ulinc tasks in queue: {props.accountsData[0].ulinc_tasks_in_queue}</span></div>
-          <hr className="mb-0"/>
-          <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Action Type</TableCell>
-                <TableCell align="right">24h</TableCell>
-                <TableCell align="right">72hr</TableCell>
-                <TableCell align="right">week</TableCell>
-                <TableCell align="right">month</TableCell>
-                <TableCell align="right">total</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row) => (
-                <TableRow key={row.actionType}>
-                  <TableCell component="th" scope="row">
-                    {row.actionType}
-                  </TableCell>
-                  <TableCell align="right">{row.twentyFourHr}</TableCell>
-                  <TableCell align="right">{row.seventyTwoHr}</TableCell>
-                  <TableCell align="right">{row.week}</TableCell>
-                  <TableCell align="right">{row.month}</TableCell>
-                  <TableCell align="right">{row.total}</TableCell>
+      <div className={classes.tableWrapperDiv}>
+        <div className={classes.tableName + " d-flex justify-content-between ml-1 h4"}>Data for { props.accountsData[0].ulinc_li_email } <span className={classes.taskInQueue + " h6"}>Ulinc tasks in queue: {props.accountsData[0].ulinc_tasks_in_queue}</span></div>
+          <TableContainer component={Paper} className={classes.tableWrapper + " tableBoxShadow"}>
+            <Table className={classes.table + " commStatsTable"} aria-label="simple table">
+              <TableHead className={classes.tableHeaders}>
+                <TableRow>
+                  <TableCell className={classes.tableHeaders}>Action Type</TableCell>
+                  <TableCell className={classes.tableHeaders} align="center">24h</TableCell>
+                  <TableCell className={classes.tableHeaders} align="center">72hr</TableCell>
+                  <TableCell className={classes.tableHeaders} align="center">week</TableCell>
+                  <TableCell className={classes.tableHeaders} align="center">month</TableCell>
+                  <TableCell className={classes.tableHeaders} align="center">total</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {rows.map((row) => (
+                  <TableRow key={row.actionType}>
+                    <TableCell component="th" scope="row" className="text-capitalize">
+                      {removeUnderscores(row.actionType)}
+                    </TableCell>
+                    <TableCell align="center">{row.twentyFourHr}</TableCell>
+                    <TableCell align="center">{row.seventyTwoHr}</TableCell>
+                    <TableCell align="center">{row.week}</TableCell>
+                    <TableCell align="center">{row.month}</TableCell>
+                    <TableCell align="center">{row.total}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
     }
-    </Paper>
+    </div>
   );
 }

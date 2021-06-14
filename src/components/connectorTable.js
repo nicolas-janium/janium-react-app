@@ -11,22 +11,35 @@ import { Card, CardActions, CardContent, CardHeader, Button, Typography, Switch,
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
-  tableWrapper: {
+  tableWrapperDiv: {
     maxWidth: 1100,
+    margin: "auto"
+  },
+  tableWrapper: {
     background: "transparent",
-    boxShadow: "unset"
+    boxShadow: "unset",
+    position: "relative",
+    display: "table",
+    borderRadius: "7px",
+    overflow: "hidden"
   },
   table: {
     minWidth: 600,
-    borderRadius: "7px",
-    overflow: "hidden"
+    borderRadius: "7px"
   },
   tableHeaders: {
     background: "#FFF"
   },
   newCampaignButton: {
-    background: "#3f51b5",
-    color: "#FFF"
+    background: "#74c69d",
+    color: "#FFF",
+    '&:focus': {
+        outline: "unset"
+    },
+    '&:hover': {
+        background: "#63bf91",
+        boxShadow: "0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)"
+    }
   },
   modal: {
     display: 'flex',
@@ -76,8 +89,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function createData(title, type, status, contacts, connected, replied) {
-  return { title, type, status, contacts, connected, replied };
+function createData(title, type, status, contacts, connected, replied, campaignId) {
+  return { title, type, status, contacts, connected, replied, campaignId };
 }
 
 export default function ConnectorTable(props) {
@@ -113,19 +126,19 @@ export default function ConnectorTable(props) {
   
   if (props.campaignsData.length > 0) {
     props.campaignsData.map((campaignInfo, i) => {
-      rows.push(createData(campaignInfo.janium_campaign_name, campaignInfo.janium_campaign_type, campaignInfo.janium_campaign_is_active, campaignInfo.janium_campaign_contacts, campaignInfo.janium_campaign_connected, campaignInfo.janium_campaign_replied));
+      rows.push(createData(campaignInfo.janium_campaign_name, campaignInfo.janium_campaign_type, campaignInfo.janium_campaign_is_active, campaignInfo.janium_campaign_contacts, campaignInfo.janium_campaign_connected, campaignInfo.janium_campaign_replied, campaignInfo.janium_campaign_id));
     })
   } else {
     hasNoCampaigns = true;
   }
 
   return (
-    <div>
-      <TableContainer component={Paper} className={classes.tableWrapper + " m-auto"}>
-        <div className="d-flex justify-content-between pb-1">
-          <div className="ml-1 mt-2 h4">Campaigns</div>
-          <Button className={classes.newCampaignButton + " px-3"} size="small" onClick={handleOpen}>New Campaign</Button>
-        </div>
+    <div className={classes.tableWrapperDiv}>
+      <div className="d-flex justify-content-between pb-1">
+        <div className="ml-1 mt-2 h4">Campaigns</div>
+        <Button className={classes.newCampaignButton + " px-3"} size="small" onClick={handleOpen}>New Campaign</Button>
+      </div>
+      <TableContainer component={Paper} className={classes.tableWrapper + " tableBoxShadow m-auto"}>
         <Table className={classes.table + " campaignsTable"} aria-label="simple table">
           <TableHead className={classes.tableHeaders}>
             <TableRow>
@@ -140,14 +153,14 @@ export default function ConnectorTable(props) {
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.title}>
-                <TableCell align="center">
-                  <Link title={row.title}>{row.title}</Link>
+                <TableCell align="center" width="35%">
+                  <Link title={row.title} to={{pathname: '/campaign?janiumCampaignId='+ row.campaignId}}>{row.title}</Link>
                 </TableCell>
-                <TableCell align="center">{row.type}</TableCell>
-                <TableCell align="center">{row.status ? "Active" : "Inactive"}</TableCell>
-                <TableCell align="center">{row.contacts}</TableCell>
-                <TableCell align="center">{row.connected}</TableCell>
-                <TableCell align="center">{row.replied}</TableCell>
+                <TableCell align="center" width="20%">{row.type}</TableCell>
+                <TableCell align="center" width="15%" className={row.status ? "green" : "red"}>{row.status ? "Active" : "Inactive"}</TableCell>
+                <TableCell align="center" width="10%">{row.contacts}</TableCell>
+                <TableCell align="center" width="10%">{row.connected}</TableCell>
+                <TableCell align="center" width="10%">{row.replied}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -193,7 +206,7 @@ export default function ConnectorTable(props) {
                       color="primary"
                     />
                   }
-                  label={<Typography className={classes.switchText}>Active?</Typography>}
+                  label={<Typography className={classes.switchText}>Active</Typography>}
                 />
               </CardContent>
               <CardActions className={classes.buttonWrapper}>

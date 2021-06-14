@@ -11,17 +11,20 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import Logo from '../assets/logo2.svg';
+import Logo from '../assets/logo.png';
 import {BrowserRouter as Router, Route, Redirect, useHistory, Link } from "react-router-dom";
 import * as Api from "../api.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    zIndex: "999"
+    zIndex: "999",
+    background: "#74c69d"
   },
   appBar: {
-    background: "#0A369D"
+    // background: "#0A369D"
+    background: "#74c69d",
+    
   },
   menuWrapper: {
     justifyContent: "flex-end"
@@ -86,12 +89,12 @@ export default function Navbar(props) {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar className={classes.menuWrapper + " w-100 pl-0"}>
-          <img className={classes.logo} src={Logo} alt="Logo" />
+        <Toolbar className={classes.menuWrapper + " w-100 pl-0 py-2"}>
+          <img className={classes.logo + " mr-auto ml-3"} src={Logo} alt="Logo" />
 
-          <MenuItem onClick={routeChange}>Accounts</MenuItem>
-          <MenuItem onClick={handleClose}>Support</MenuItem>
-          <MenuItem onClick={logOutClickHandler}>Log Out</MenuItem>
+          <MenuItem onClick={routeChange}>Account</MenuItem>
+          {/* <MenuItem onClick={handleClose}>Support</MenuItem> */}
+          <MenuItem onClick={logOutClickHandler}>Logout</MenuItem>
         </Toolbar>
       </AppBar>
     </div>
