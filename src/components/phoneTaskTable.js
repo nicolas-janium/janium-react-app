@@ -13,7 +13,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 
 const useStyles = makeStyles({
   tableWrapperDiv: {
-    maxWidth: 1200,
+    width: 1200,
     margin: "auto"
   },
   tableWrapper: {
@@ -22,10 +22,11 @@ const useStyles = makeStyles({
     position: "relative",
     display: "table",
     borderRadius: "7px",
-    overflow: "hidden"
+    overflow: "hidden",
+    width: "100%"
   },
   table: {
-    minWidth: 650,
+    width: "100%",
     border: "3px solid #533740",
     borderRadius: "7px"
   },
@@ -38,8 +39,12 @@ const useStyles = makeStyles({
     textDecoration: "underline"
   },
   pagination: {
-    background: "#533740",
-    color: "#FFF"
+    color: "#533740",
+    background: "#FFF",
+    border: "3px solid #533740",
+    borderBottomLeftRadius: "7px",
+    borderBottomRightRadius: "7px",
+    borderTop: "unset"
   }
 });
 
@@ -76,7 +81,7 @@ export default function PhoneTaskTable(props) {
 
   return (
     <div className={classes.tableWrapperDiv}>
-      <div className={classes.tableName + " ml-1 h4"}>New Connections</div>
+      <div className={classes.tableName + " ml-1 h4"}>Phone Tasks</div>
       <TableContainer component={Paper} className={classes.tableWrapper + " tableBoxShadow m-auto"}>
         <Table className={classes.table + " phoneTaskTable"} aria-label="simple table">
           <TableHead className={classes.tableHeaders}>

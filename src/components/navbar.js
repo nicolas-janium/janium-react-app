@@ -89,7 +89,7 @@ export default function Navbar(props) {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar className={classes.menuWrapper + " w-100 pl-0"}>
+        <Toolbar className={classes.menuWrapper + " w-100 pl-0 py-2"}>
           <img className={classes.logo + " mr-auto ml-3"} src={Logo} alt="Logo" />
 
           <MenuItem onClick={routeChange}>Account</MenuItem>

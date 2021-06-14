@@ -64,14 +64,13 @@ export default function CampaignSettingsAndStats(props) {
                         Alternate Email
                     </Typography>
                     <Typography variant="body2" gutterBottom className="ml-3">
-                        You are currently using (insert default
-                        sending email) to send emails for this
+                        You are currently using ({props.campaignSettingsData.email_config_from_address}) to send emails for this
                         campaign. If you would like to use a different
                         email, select the correct one from the list
                         below.
                     </Typography>
                     <FormControl className={classes.formControl + " ml-3"}>
-                        <InputLabel id="demo-simple-select-label">Ulinc Campaign</InputLabel>
+                        <InputLabel id="demo-simple-select-label">Alternate Email</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"

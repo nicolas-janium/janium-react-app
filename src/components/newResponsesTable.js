@@ -22,7 +22,8 @@ const useStyles = makeStyles({
     position: "relative",
     display: "table",
     borderRadius: "7px",
-    overflow: "hidden"
+    overflow: "hidden",
+    maxWidth: 1200
   },
   table: {
     minWidth: 650,
@@ -34,8 +35,12 @@ const useStyles = makeStyles({
     background: "#535a49"
   },
   pagination: {
-    background: "#535a49",
-    color: "#FFF"
+    color: "#535a49",
+    background: "#FFF",
+    border: "3px solid #535a49",
+    borderBottomLeftRadius: "7px",
+    borderBottomRightRadius: "7px",
+    borderTop: "unset"
   },
   continue: {
     color: "#6b9d5b",
@@ -69,7 +74,7 @@ export default function NewResponsesTable(props) {
 
   if (props.responseData.length > 0) {
     props.responseData.map((messagesInfo, i) => {
-      rows.push(createData(messagesInfo.full_name, messagesInfo.title, messagesInfo.company, messagesInfo.location, messagesInfo.janium_campaign_name, messagesInfo.msg_timestamp));
+      rows.push(createData(messagesInfo.full_name, messagesInfo.title, messagesInfo.company, messagesInfo.location, messagesInfo.ulinc_campaign_name, messagesInfo.msg_timestamp));
   })
   } else {
     hasNoNewConnections = true;
@@ -79,7 +84,7 @@ export default function NewResponsesTable(props) {
     <div className={classes.tableWrapperDiv}>
       <div className={classes.tableName + " ml-1 h4"}>New Responses</div>
       <TableContainer component={Paper} className={classes.tableWrapper + " tableBoxShadow m-auto"}>
-        <Table className={classes.table + " newResponsesTable"} aria-label="simple table">
+        <Table className={classes.table + " newResponsesTable"} aria-label="simple table" style={{ width: 1200 }}>
           <TableHead className={classes.tableHeaders}>
             <TableRow>
               <TableCell align="center">Name/LinkedIn</TableCell>

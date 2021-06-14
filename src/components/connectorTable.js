@@ -31,10 +31,14 @@ const useStyles = makeStyles((theme) => ({
     background: "#FFF"
   },
   newCampaignButton: {
-    background: "#3f51b5",
+    background: "#74c69d",
     color: "#FFF",
     '&:focus': {
         outline: "unset"
+    },
+    '&:hover': {
+        background: "#63bf91",
+        boxShadow: "0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)"
     }
   },
   modal: {
@@ -149,14 +153,14 @@ export default function ConnectorTable(props) {
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.title}>
-                <TableCell align="center">
-                  <Link title={row.title} to={{pathname: '/campaign/:'+ row.campaignId}}>{row.title}</Link>
+                <TableCell align="center" width="35%">
+                  <Link title={row.title} to={{pathname: '/campaign?janiumCampaignId='+ row.campaignId}}>{row.title}</Link>
                 </TableCell>
-                <TableCell align="center">{row.type}</TableCell>
-                <TableCell align="center">{row.status ? "Active" : "Inactive"}</TableCell>
-                <TableCell align="center">{row.contacts}</TableCell>
-                <TableCell align="center">{row.connected}</TableCell>
-                <TableCell align="center">{row.replied}</TableCell>
+                <TableCell align="center" width="20%">{row.type}</TableCell>
+                <TableCell align="center" width="15%" className={row.status ? "green" : "red"}>{row.status ? "Active" : "Inactive"}</TableCell>
+                <TableCell align="center" width="10%">{row.contacts}</TableCell>
+                <TableCell align="center" width="10%">{row.connected}</TableCell>
+                <TableCell align="center" width="10%">{row.replied}</TableCell>
               </TableRow>
             ))}
           </TableBody>

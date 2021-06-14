@@ -41,7 +41,7 @@ export default function LinkedInMessageDiv(props) {
 
     return (
         <div>
-            <Typography variant="subtitle1" gutterBottom>
+            <Typography variant="h6" gutterBottom>
                 {props.stepTitle}
             </Typography>
             <TextField className={classes.textFieldStyles} id="outlined-basic" label="LI Delay" variant="outlined" size="small" />

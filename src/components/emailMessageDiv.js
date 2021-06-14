@@ -63,7 +63,7 @@ export default function EmailMessageDiv(props) {
 
     return (
         <div className={props.leftSide ? classes.divWrapperLeft : classes.divWrapperRight}>
-            <Typography variant="subtitle1" gutterBottom>
+            <Typography variant="h6" gutterBottom>
                 {props.stepTitle}
             </Typography>
             <div className="d-flex justify-content-between">

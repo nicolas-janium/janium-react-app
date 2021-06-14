@@ -81,3 +81,43 @@ export async function getAccountHomepageData(params, success, failure) {
         failure();
     })
 }
+
+export async function getCampaignContacts(params, success, failure) {
+
+    config.headers.Authorization = "Bearer " + Cookies.get("access_token_cookie");
+
+    axios.get(url + '/janium_campaign?janium_campaign_id=' + params.janiumCampaignId, config).then((response) => {
+        // console.log("this is my response for account page: ", response);
+        success(response);
+    }).catch((error) => {
+        console.log("this is my error: ", error);
+        failure();
+    })
+}
+
+//PUTS
+export async function updateAssignUlincCampaigns(body, success, failure) {
+
+    config.headers.Authorization = "Bearer " + Cookies.get("access_token_cookie");
+
+    axios.put(url + '/ulinc_campaign', body, config).then((response) => {
+        // console.log("this is my response for account page: ", response);
+        success(response);
+    }).catch((error) => {
+        console.log("this is my error: ", error);
+        failure();
+    })
+}
+
+export async function updateJaniumCampaignStatus(body, success, failure) {
+
+    config.headers.Authorization = "Bearer " + Cookies.get("access_token_cookie");
+
+    axios.put(url + '/janium_campaign', body, config).then((response) => {
+        // console.log("this is my response for account page: ", response);
+        success(response);
+    }).catch((error) => {
+        console.log("this is my error: ", error);
+        failure();
+    })
+}

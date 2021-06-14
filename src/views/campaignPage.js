@@ -72,11 +72,11 @@ export default function CampaignPage(props) {
           <Tab className={classes.tabButtons} label="Contacts" {...a11yProps(0)} />
           <Tab className={classes.tabButtons} label="Messaging" {...a11yProps(1)} />
           <Tab className={classes.tabButtons} label="Messaging - Data Enrichment" {...a11yProps(2)} />
-          <Tab className={classes.tabButtons} label="Settings &#38; Stats" {...a11yProps(3)} />
+          <Tab className={classes.tabButtons} label="Settings" {...a11yProps(3)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <CampaignContacts />
+        <CampaignContacts campaignContactsData={props.campaignContactsData} />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <CampaignMessaging />
@@ -85,7 +85,7 @@ export default function CampaignPage(props) {
         <CampaignMessagingDataEnrich />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <CampaignSettingsAndStats />
+        <CampaignSettingsAndStats campaignSettingsData={props.campaignContactsData} />
       </TabPanel>
     </div>
   );

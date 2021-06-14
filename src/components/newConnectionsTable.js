@@ -38,8 +38,12 @@ const useStyles = makeStyles({
     textDecoration: "underline"
   },
   pagination: {
-    background: "#193852",
-    color: "#FFF"
+    color: "#193852",
+    background: "#FFF",
+    border: "3px solid #193852",
+    borderBottomLeftRadius: "7px",
+    borderBottomRightRadius: "7px",
+    borderTop: "unset"
   }
 });
 
@@ -68,7 +72,7 @@ export default function NewConnectionsTable(props) {
 
   if (props.connectionData.length > 0) {
     props.connectionData.map((connectionInfo, i) => {
-      rows.push(createData(connectionInfo.full_name, connectionInfo.is_dqd, connectionInfo.title, connectionInfo.company, connectionInfo.location, connectionInfo.janium_campaign_name, connectionInfo.connection_date));
+      rows.push(createData(connectionInfo.full_name, connectionInfo.is_dqd, connectionInfo.title, connectionInfo.company, connectionInfo.location, connectionInfo.ulinc_campaign_name, connectionInfo.connection_date));
     })
   } else {
     hasNoNewConnections = true;
@@ -81,13 +85,13 @@ export default function NewConnectionsTable(props) {
         <Table className={classes.table + " newConnectionsTable"} aria-label="simple table">
           <TableHead className={classes.tableHeaders}>
             <TableRow>
-              <TableCell align="center" className={classes.fontWhite}>Name/LinkedIn</TableCell>
-              <TableCell align="center">Qualification</TableCell>
-              <TableCell align="center">Title</TableCell>
-              <TableCell align="center">Company</TableCell>
-              <TableCell align="center">Location</TableCell>
-              <TableCell align="center">Campaign</TableCell>
-              <TableCell align="center">Connection Date</TableCell>
+              <TableCell align="left" className={classes.fontWhite}>Name/LinkedIn</TableCell>
+              <TableCell align="left">Qualification</TableCell>
+              <TableCell align="left">Title</TableCell>
+              <TableCell align="left">Company</TableCell>
+              <TableCell align="left">Location</TableCell>
+              <TableCell align="left">Campaign</TableCell>
+              <TableCell align="left">Connection Date</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -96,13 +100,13 @@ export default function NewConnectionsTable(props) {
                 {/* <TableCell component="th" scope="row">
                   <Link>{row.title}</Link>
                 </TableCell> */}
-                <TableCell align="center"><Link to="">{row.name}</Link></TableCell>
-                <TableCell align="center">{row.qualifications ? "" : <a href="#" className={classes.dq}>DQ</a>}</TableCell>
-                <TableCell className="text-nowrap" align="center">{row.title}</TableCell>
-                <TableCell align="center">{row.company}</TableCell>
-                <TableCell className="text-nowrap" align="center">{row.location}</TableCell>
-                <TableCell className="text-nowrap" align="center">{row.campaign}</TableCell>
-                <TableCell className="text-nowrap" align="center">{row.connectionDate}</TableCell>
+                <TableCell align="left"><Link to="">{row.name}</Link></TableCell>
+                <TableCell align="left">{row.qualifications ? "" : <a href="#" className={classes.dq}>DQ</a>}</TableCell>
+                <TableCell className="text-nowrap" align="left">{row.title}</TableCell>
+                <TableCell align="left">{row.company}</TableCell>
+                <TableCell className="text-nowrap" align="left">{row.location}</TableCell>
+                <TableCell className="text-nowrap" align="left">{row.campaign}</TableCell>
+                <TableCell className="text-nowrap" align="left">{row.connectionDate}</TableCell>
               </TableRow>
             ))}
           </TableBody>

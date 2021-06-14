@@ -11,12 +11,15 @@ import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
 import { FormControlLabel, Switch, Typography, Button, Select, Checkbox, TableSortLabel, InputLabel, TablePagination }  from '@material-ui/core';
 import { CampaignContactsTable } from "../components";
+import * as Api from "../api.js";
+import { FlashOnOutlined } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         width: "100%",
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        maxWidth: 1400
     },
     formControl: {
         minWidth: 150,
@@ -36,19 +39,23 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     tableWrapper: {
-        maxWidth: 750
+        maxWidth: 900
+    },
+    switchWrapper: {
+        maxWidth: 1000
     }
 }));
 
-function createData(ulincCampaign, isActive, campaignId) {
-    return { ulincCampaign, isActive, campaignId };
+function createData(ulincCampaign, isActive, campaignId, parentCampaignId, ulincCampaignId) {
+    return { ulincCampaign, isActive, campaignId, parentCampaignId, ulincCampaignId };
 }
 
 const headCells = [
     { id: 'checks', numeric: false, disablePadding: false, label: 'Select' },
     { id: 'ulincCampaign', numeric: false, disablePadding: false, label: 'Ulinc Campaign Name' },
-    { id: 'isActive', numeric: true, disablePadding: false, label: 'Ulinc Is Active' },
-    { id: 'campaignId', numeric: true, disablePadding: false, label: 'Ulinc Campaign ID' }
+    { id: 'isActive', numeric: false, disablePadding: false, label: 'Ulinc Is Active' },
+    { id: 'campaignId', numeric: false, disablePadding: false, label: 'Ulinc Campaign ID' },
+    { id: 'parentCampaignId', numeric: true, disablePadding: false, label: 'Parent Janium Campaign' }
 ];
 
 export default function CampaignContacts(props) {
@@ -56,6 +63,9 @@ export default function CampaignContacts(props) {
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
     const [selected, setSelected] = React.useState([]);
+    // const [triggerRefresh, setRefresh] = React.useState({
+    //     refresh: false
+    // })
 
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -76,16 +86,45 @@ export default function CampaignContacts(props) {
 
     const handleChangeCheckbox = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });
+
+        updateJaniumCampaignStatus();
     };
 
-    const rows = [
-        createData('Campaign 1', true, 159),
-        createData('Campaign 2', true, 151),
-        createData('Campaign 3', false, 152),
-        createData('Campaign 4', true, 153),
-        createData('Campaign 5', true, 154),
-        createData('Campaign 5', true, 154),
-    ];
+    //update janium campaign status
+    function updateJaniumCampaignStatus() {
+        let body = {
+          "janium_campaign_id": props.campaignContactsData.janium_campaign_id,
+          "janium_campaign_name": props.campaignContactsData.janium_campaign_name,
+          "janium_campaign_description": "",
+          "is_active": !state.campaignActive,
+          "email_config_id": props.campaignContactsData.email_config_id
+        }
+
+        Api.updateJaniumCampaignStatus(body, updateJaniumCampaignStatusSuccess, updateJaniumCampaignStatusFailure);
+    }
+
+    function updateJaniumCampaignStatusSuccess() {
+
+    }
+
+    function updateJaniumCampaignStatusFailure() {
+
+    }
+
+    let rows = [];
+    let hasNoUlincCampaigns = false;
+    console.log('these be me prahps: ', props);
+
+    if (props.campaignContactsData.total_ulinc_campaigns.length > 0) {
+        props.campaignContactsData.total_ulinc_campaigns.map((ulincCampaigns, index) => {
+            // if (ulincCampaigns.parent_janium_camapaign_name) {
+            //     setSelected(ulincCampaigns.ulinc_campaign_id);
+            // }
+            rows.push(createData(ulincCampaigns.ulinc_campaign_name, ulincCampaigns.ulinc_is_active, ulincCampaigns.ulinc_ulinc_campaign_id, ulincCampaigns.parent_janium_camapaign_name, ulincCampaigns.ulinc_campaign_id));
+        })
+    } else {
+        hasNoUlincCampaigns = true;
+    }
 
     //checkbox code
 
@@ -137,12 +176,43 @@ export default function CampaignContacts(props) {
         return 0;
       }
 
+      // for api call
+      let ulincCampaignsToLink = {
+        "ulinc_campaign_ids":[],
+        "janium_campaign_id": null
+      }
+      ulincCampaignsToLink.janium_campaign_id = props.campaignContactsData.janium_campaign_id;
+      function addUlincCampaignsClickHandler() {
+        ulincCampaignsToLink.ulinc_campaign_ids = selected;
+        Api.updateAssignUlincCampaigns(ulincCampaignsToLink, addUlincCampaignsSuccess, addUlincCampaignsFailure);
+      }
+
+      function addUlincCampaignsSuccess(response) {
+        window.location.reload();
+        // rows = [];
+        // response.data.map((ulincCampaigns, index) => {
+        //     rows.push(createData(ulincCampaigns.ulinc_campaign_name, ulincCampaigns.ulinc_is_active, ulincCampaigns.ulinc_ulinc_campaign_id, ulincCampaigns.parent_janium_camapaign_name, ulincCampaigns.ulinc_campaign_id));
+        // })
+      }
+
+      function addUlincCampaignsFailure() {
+          
+      }
+
+      function refreshData() {
+
+      }
+
+      
+    
+      
+
 
     return (
         <div className={classes.root}>
             {/* switch campaign on or off */}
             <FormControlLabel
-                className="mt-3 justify-content-end"
+                className={classes.switchWrapper + " mt-3 ml-auto"}
                 control={
                 <Switch
                     checked={state.campaignActive}
@@ -151,7 +221,7 @@ export default function CampaignContacts(props) {
                     color="primary"
                 />
                 }
-                label={<Typography className={classes.switchText + " ml-auto"}>Campaign Name</Typography>}
+                label={<Typography className={classes.switchText + " ml-auto"}>{props.campaignContactsData.janium_campaign_name}</Typography>}
             />
             
             <div className="d-flex">
@@ -159,7 +229,7 @@ export default function CampaignContacts(props) {
                     {/* <Typography variant="h6" gutterBottom>
                         Associate Ulinc Campaign and Contacts to this Janium Campaign
                     </Typography> */}
-                    <Button variant="contained" color="primary" className={classes.buttonClass + " mt-3"}>
+                    <Button onClick={refreshData} variant="contained" color="primary" className={classes.buttonClass + " mt-3"}>
                         Retrieve/Refresh Ulinc Campaigns
                     </Button>
                     <br />
@@ -188,15 +258,15 @@ export default function CampaignContacts(props) {
                             <TableBody>
                                 {
                                     stableSort(rows, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => {
-                                        const isItemSelected = isSelected(row.campaignId);
+                                        const isItemSelected = isSelected(row.ulincCampaignId);
                                         const labelId = `enhanced-table-checkbox-${index}`;
                                     
                                     return (
                                         
                                     <TableRow 
-                                        key={row.campaignId}
+                                        key={row.ulincCampaignId}
                                         hover
-                                        onClick={(event) => handleClick(event, row.campaignId)}
+                                        onClick={(event) => handleClick(event, row.ulincCampaignId)}
                                         role="checkbox"
                                         aria-checked={isItemSelected}
                                         tabIndex={-1}
@@ -214,6 +284,7 @@ export default function CampaignContacts(props) {
                                         <TableCell align="center">{row.ulincCampaign}</TableCell>
                                         <TableCell align="center">{row.isActive ? <CheckIcon className="greenCheck"/> : <CloseIcon className="redX" />}</TableCell>
                                         <TableCell align="center">{row.campaignId}</TableCell>
+                                        <TableCell align="center">{row.parentCampaignId ? row.parentCampaignId : ""}</TableCell>
                                     </TableRow>
                                     )})
                                 }
@@ -244,12 +315,12 @@ export default function CampaignContacts(props) {
                         label={<Typography className={classes.switchText}>Backdate Steps</Typography>}
                     /> */}
                     <br />
-                    <Button variant="contained" color="#000" className={classes.buttonClass + " mt-3 " + classes.buttonClassTwo}>
-                        Add Ulinc Campaign(s)
+                    <Button onClick={addUlincCampaignsClickHandler} variant="contained" color="#000" className={classes.buttonClass + " mt-3 " + classes.buttonClassTwo}>
+                        Add Ulinc Campaign(s) to {props.campaignContactsData.janium_campaign_name}
                     </Button>
                 </div>
             </div>
-            <CampaignContactsTable />
+            <CampaignContactsTable contactsData={props.campaignContactsData.contact_list} />
         </div>
       );
 }

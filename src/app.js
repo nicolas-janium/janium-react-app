@@ -38,6 +38,10 @@ const App = () => {
     accountHomepageData: null
   })
 
+  const [campaignContacts, setcampaignContacts] = React.useState({
+    campaignContactsData: null
+  })
+
   const getAccountPageData = () => {
     Api.getAccountPageData(accountPageDataSuccess, accountPageDataFailure);
   }
@@ -65,6 +69,28 @@ const App = () => {
   
   const gotoAccountHomepageFail = () => {
    console.log('homepage call failed');
+  }
+
+  const getCampaignContactsData = () => {
+    var url_string = window.location.href; 
+    var url = new URL(url_string);
+    var janiumCampaignId = url.searchParams.get("janiumCampaignId");
+
+    let params = {
+      janiumCampaignId: janiumCampaignId
+    }
+
+    Api.getCampaignContacts(params, getCampaignContactsDataSuccess, getCampaignContactsDataFailure)
+  }
+
+  const getCampaignContactsDataSuccess = (response) => {
+    console.log('campaign contacts call success ', response.data);
+
+    setcampaignContacts({...campaignContacts, campaignContactsData: response.data});
+  }
+
+  const getCampaignContactsDataFailure = () => {
+    console.log('campaign contacts call failed');
   }
 
   return (
@@ -99,7 +125,13 @@ const App = () => {
               }
             }} />
             <Route path="/settingsPage" component={SettingsPage} />
-            <Route path="/campaign" component={CampaignPage} />
+            <Route path="/campaign" render={(prop) => {
+              if (campaignContacts.campaignContactsData == null) {
+                getCampaignContactsData();
+              } else {
+                return <CampaignPage campaignContactsData={campaignContacts.campaignContactsData} />
+              }
+            }} />
           </Switch>
       </div> 
     </Router>

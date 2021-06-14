@@ -24,7 +24,7 @@ export default function Accounts(props) {
       <br />
 		  <AccountsCard accountsData={props.state} /> 
       <br />
-      <div className={classes.tablesWrapper + " d-flex justify-content-around align-items-center px-5 mx-auto"}>
+      <div className={classes.tablesWrapper + " d-flex justify-content-around align-items-center px-5 mx-auto mt-3"}>
         <CommunicationStatsTable accountsData={props.state} />
         {/* <AccountDetailsDataList /> */}
       </div>

@@ -17,7 +17,16 @@ const useStyles = makeStyles((theme) => ({
     },
     buttonClass: {
         width: "60%",
-        margin: "0 auto"
+        margin: "0 auto",
+        background: "#74c69d",
+        color: "#FFF",
+        '&:focus': {
+            outline: "unset"
+        },
+        '&:hover': {
+            background: "#63bf91",
+            boxShadow: "0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)"
+        }
     }
 }));
 
@@ -30,7 +39,7 @@ export default function CampaignMessaging(props) {
                 <Typography variant="h6" gutterBottom>
                     Step 1: LinkedIn Connection (Initiated by Ulinc) - Day 0
                 </Typography>
-                <Typography variant="caption" gutterBottom>
+                <Typography variant="caption" gutterBottom className="w-75 mb-4">
                     Janium is engineered to trigger off of actions that are inititated in Ulinc. Create a 1-step connector
                     campaign in Ulinc and then associate this Janium campaign to that Ulinc campaign on the contacts
                     tab (to the left). Once associated, Janium will take care of the rest of the steps after connection.

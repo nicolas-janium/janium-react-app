@@ -59,6 +59,12 @@ blueish gray: #597081 OR #36494E
 .redX {
   color: #c7433d;
 }
+.green {
+  color: #74c69d !important;
+}
+.red {
+  color: #ff3a2c !important;
+}
 button { 
   text-transform: unset !important;
 }
@@ -98,6 +104,12 @@ thead tr:hover {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.newResponsesTable tbody tr td {
+  max-width: 75px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .newResponsesTable tbody tr:nth-child(odd) {
   background: #e9ebe6;
 }
@@ -106,6 +118,9 @@ thead tr:hover {
 }
 .phoneTaskTable tbody tr:nth-child(odd) {
   background: #e4d8dd;
+}
+.commStatsTable tbody tr:nth-child(odd) {
+  background: rgb(116 198 157 / 10%);
 }
 .campaignsTable thead tr th {
   /* color: #0A369D !important; */
@@ -153,4 +168,14 @@ table tbody tr:nth-child(even) {
 /* navbar */
 .MuiAppBar-colorPrimary {
   background: #74C69D !important;
+}
+
+/*  accordion */
+.accordionStyles {
+  box-shadow: unset !important;
+  border: unset !important;
+  margin: auto !important;
+}
+.MuiAccordion-root:before {
+  background-color: unset !important;
 }
