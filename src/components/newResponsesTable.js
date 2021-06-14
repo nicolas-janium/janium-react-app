@@ -82,32 +82,32 @@ export default function NewResponsesTable(props) {
 
   return (
     <div className={classes.tableWrapperDiv}>
-      <div className={classes.tableName + " ml-1 h4"}>New Responses</div>
+      {/* <div className={classes.tableName + " ml-1 h4"}>New Responses</div> */}
       <TableContainer component={Paper} className={classes.tableWrapper + " tableBoxShadow m-auto"}>
         <Table className={classes.table + " newResponsesTable"} aria-label="simple table" style={{ width: 1200 }}>
           <TableHead className={classes.tableHeaders}>
             <TableRow>
-              <TableCell align="center">Name/LinkedIn</TableCell>
-              <TableCell align="center">Continue</TableCell>
-              <TableCell align="center">Title</TableCell>
-              <TableCell align="center">Company</TableCell>
-              <TableCell align="center">Location</TableCell>
-              <TableCell align="center">Campaign</TableCell>
-              {/* <TableCell align="center">Source</TableCell> */}
-              <TableCell align="center">Timestamp</TableCell>
+              <TableCell align="left">Name/LinkedIn</TableCell>
+              <TableCell align="left">Continue</TableCell>
+              <TableCell align="left">Title</TableCell>
+              <TableCell align="left">Company</TableCell>
+              <TableCell align="left">Location</TableCell>
+              <TableCell align="left">Campaign</TableCell>
+              {/* <TableCell align="left">Source</TableCell> */}
+              <TableCell align="left">Timestamp</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
               <TableRow key={row.title}>
-                <TableCell align="center"><Link>{row.name}</Link></TableCell>
-                <TableCell align="center"><a href="#" className={classes.continue}>continue</a></TableCell>
-                <TableCell className="text-nowrap" align="center">{row.title}</TableCell>
-                <TableCell align="center">{row.company}</TableCell>
-                <TableCell className="text-nowrap" align="center">{row.location}</TableCell>
-                <TableCell className="text-nowrap" align="center">{row.campaign}</TableCell>
-                {/* <TableCell align="center">{row.continue}</TableCell> */}
-                <TableCell className="text-nowrap" align="center">{row.connectionDate}</TableCell>
+                <TableCell align="left"><Link>{row.name}</Link></TableCell>
+                <TableCell align="left"><a href="#" className={classes.continue}>continue</a></TableCell>
+                <TableCell className="text-nowrap" align="left">{row.title}</TableCell>
+                <TableCell align="left">{row.company}</TableCell>
+                <TableCell className="text-nowrap" align="left">{row.location}</TableCell>
+                <TableCell className="text-nowrap" align="left">{row.campaign}</TableCell>
+                {/* <TableCell align="left">{row.continue}</TableCell> */}
+                <TableCell className="text-nowrap" align="left">{row.connectionDate}</TableCell>
               </TableRow>
             ))}
           </TableBody>

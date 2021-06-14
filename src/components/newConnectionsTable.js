@@ -80,7 +80,7 @@ export default function NewConnectionsTable(props) {
 
   return (
     <div className={classes.tableWrapperDiv}>
-      <div className={classes.tableName + " ml-1 h4"}>New Connections</div>
+      {/* <div className={classes.tableName + " ml-1 h4"}>New Connections</div> */}
       <TableContainer component={Paper} className={classes.tableWrapper + " tableBoxShadow m-auto"}>
         <Table className={classes.table + " newConnectionsTable"} aria-label="simple table">
           <TableHead className={classes.tableHeaders}>

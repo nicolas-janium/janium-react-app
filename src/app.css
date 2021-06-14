@@ -113,9 +113,9 @@ thead tr:hover {
 .newResponsesTable tbody tr:nth-child(odd) {
   background: #e9ebe6;
 }
-.campaignsTable tbody tr:nth-child(odd) {
+/* .campaignsTable tbody tr:nth-child(odd) {
   background: #FFF;
-}
+} */
 .phoneTaskTable tbody tr:nth-child(odd) {
   background: #e4d8dd;
 }

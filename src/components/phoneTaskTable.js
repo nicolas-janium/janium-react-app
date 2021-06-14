@@ -81,17 +81,17 @@ export default function PhoneTaskTable(props) {
 
   return (
     <div className={classes.tableWrapperDiv}>
-      <div className={classes.tableName + " ml-1 h4"}>Phone Tasks</div>
+      {/* <div className={classes.tableName + " ml-1 h4"}>Phone Tasks</div> */}
       <TableContainer component={Paper} className={classes.tableWrapper + " tableBoxShadow m-auto"}>
         <Table className={classes.table + " phoneTaskTable"} aria-label="simple table">
           <TableHead className={classes.tableHeaders}>
             <TableRow>
-              <TableCell align="center" className={classes.fontWhite}>Name/LinkedIn</TableCell>
-              <TableCell align="center">Title</TableCell>
-              <TableCell align="center">Company</TableCell>
-              <TableCell align="center">Location</TableCell>
-              <TableCell align="center">Phone</TableCell>
-              <TableCell align="center">Campaign</TableCell>
+              <TableCell align="left" className={classes.fontWhite}>Name/LinkedIn</TableCell>
+              <TableCell align="left">Title</TableCell>
+              <TableCell align="left">Company</TableCell>
+              <TableCell align="left">Location</TableCell>
+              <TableCell align="left">Phone</TableCell>
+              <TableCell align="left">Campaign</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -100,12 +100,12 @@ export default function PhoneTaskTable(props) {
                 {/* <TableCell component="th" scope="row">
                   <Link>{row.title}</Link>
                 </TableCell> */}
-                <TableCell align="center"><Link to="">{row.name}</Link></TableCell>
-                <TableCell className="text-nowrap" align="center">{row.title}</TableCell>
-                <TableCell align="center">{row.company}</TableCell>
-                <TableCell className="text-nowrap" align="center">{row.location}</TableCell>
-                <TableCell className="text-nowrap" align="center">{row.phone}</TableCell>
-                <TableCell className="text-nowrap" align="center">{row.campaign}</TableCell>
+                <TableCell align="left"><Link to="">{row.name}</Link></TableCell>
+                <TableCell className="text-nowrap" align="left">{row.title}</TableCell>
+                <TableCell align="left">{row.company}</TableCell>
+                <TableCell className="text-nowrap" align="left">{row.location}</TableCell>
+                <TableCell className="text-nowrap" align="left">{row.phone}</TableCell>
+                <TableCell className="text-nowrap" align="left">{row.campaign}</TableCell>
               </TableRow>
             ))}
           </TableBody>

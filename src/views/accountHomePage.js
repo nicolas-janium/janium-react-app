@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     margin: "auto"
   },
   accordionOther: {
-    maxWidth: 1200,
+    maxWidth: 1225,
     margin: "auto"
   },
   heading: {
@@ -43,7 +43,7 @@ export default function AccountHomePage(props) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography variant="h6" className={classes.heading}>New Connection Processing Instructions</Typography>
+          <Typography variant="h6" className={classes.heading}>New Connections</Typography>
         </AccordionSummary>
         <AccordionDetails className="d-flex flex-column">
           <Typography className="mb-2 pl-3">
@@ -66,7 +66,7 @@ export default function AccountHomePage(props) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography variant="h6" className={classes.heading}>New Message Processing Instructions</Typography>
+          <Typography variant="h6" className={classes.heading}>New Messages</Typography>
         </AccordionSummary>
         <AccordionDetails className="d-flex flex-column">
           <Typography className="mb-2 pl-3">
@@ -86,7 +86,7 @@ export default function AccountHomePage(props) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography variant="h6" className={classes.heading}>Phone Task Instructions</Typography>
+          <Typography variant="h6" className={classes.heading}>Phone Tasks</Typography>
         </AccordionSummary>
         <AccordionDetails className="d-flex flex-column">
           <Typography className="mb-2 pl-3">

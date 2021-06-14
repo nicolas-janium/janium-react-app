@@ -139,7 +139,7 @@ export default function AccountsCard(props) {
             <Card variant="outlined">
               <CardHeader className="text-center" titleTypographyProps={{variant:'h5'}} title="Account Setup" />
               <CardContent className="d-flex flex-column align-items-center">
-                <TextField className={classes.inputFields} label="Username*" type="text" variant="outlined" size="small" />
+                <TextField className={classes.inputFields} label="LinkedIn Login Email*" type="text" variant="outlined" size="small" />
                 <TextField className={classes.inputFields} label="Ulinc Login Email*" type="text" variant="outlined" size="small" /> 
                 <TextField
                   className={classes.inputFields}
