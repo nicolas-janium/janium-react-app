@@ -2,7 +2,7 @@ import axios from 'axios';
 import base64 from 'react-native-base64';
 import Cookies from 'js-cookie';
 
-const url = "https://foundation-staging-305217.uc.r.appspot.com/api/v1";
+const url = process.env.REACT_APP_PRODUCTION_API_URL;
 let config = {
     headers: {
         "withCredentials": true,
