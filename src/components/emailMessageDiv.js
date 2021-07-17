@@ -1,11 +1,9 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Typography, TextField } from '@material-ui/core';
 // import React, { Component } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
-import PropTypes from 'prop-types';
-import { Translate } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     root: {

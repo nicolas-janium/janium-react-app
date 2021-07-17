@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Typography, Box, Paper, Tabs, Tab, Card, CardHeader, CardActions, CardContent, Button, TextField, Checkbox, FormControlLabel, Link, Select, FormControl, MenuItem }  from '@material-ui/core';
-import {BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import { NavBar, AccountsCard, CommunicationStatsTable, AccountDetailsDataList, CampaignContacts, CampaignMessaging, CampaignMessagingDataEnrich, CampaignSettingsAndStats } from "../components";
+import { AppBar, Typography, Box, Tabs, Tab }  from '@material-ui/core';
+import { CampaignContacts, CampaignMessaging, CampaignMessagingDataEnrich, CampaignSettingsAndStats } from "../components";
 
 // let accountsData = require('../test_data/account.json');
 

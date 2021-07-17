@@ -2,14 +2,12 @@ import React from "react";
 import {BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 
-import { NavBar, Footer, Loading } from "./components";
+import { NavBar } from "./components";
 import { Login, Accounts, AccountHomePage, SettingsPage, CampaignPage } from "./views";
 import * as Api from "./api.js";
 import Cookies from 'js-cookie';
 
-
 import "./app.css";
-import { SettingsInputAntennaTwoTone } from "@material-ui/icons";
 
 const useStyles = makeStyles({
   root: {
@@ -20,11 +18,7 @@ const useStyles = makeStyles({
 const App = () => {
 
   const classes = useStyles();
-  // const { isLoading } = useAuth0();
 
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
   const [accountInfo, setAccountInfo] = React.useState({
     accountId: null,
     isSignedIn: false,

@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow }  from '@material-ui/core';
-import { NavBar, ConnectorTable } from "../components";
+import { NavBar } from "../components";
 
 const useStyles = makeStyles({
   root: {

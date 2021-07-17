@@ -1,8 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { List, ListItem, ListItemText, Divider, Button } from '@material-ui/core';
-import {BrowserRouter as useHistory, Link } from "react-router-dom";
-import * as Api from "../api.js";
+import { List, ListItem, Divider, Button } from '@material-ui/core';
+import {BrowserRouter as Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
