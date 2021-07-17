@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import MenuItem from '@material-ui/core/MenuItem';
 import Logo from '../assets/logo.png';
-import {BrowserRouter as useHistory } from "react-router-dom";
+import {BrowserRouter as Router, Route, Redirect, useHistory, Link } from "react-router-dom";
 import * as Api from "../api.js";
 
 const useStyles = makeStyles((theme) => ({
