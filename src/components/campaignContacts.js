@@ -9,10 +9,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
-import { FormControlLabel, Switch, Typography, Button, Select, Checkbox, TableSortLabel, InputLabel, TablePagination }  from '@material-ui/core';
+import { FormControlLabel, Switch, Typography, Button, Select, Checkbox, TableSortLabel, TablePagination }  from '@material-ui/core';
 import { CampaignContactsTable } from "../components";
 import * as Api from "../api.js";
-import { FlashOnOutlined } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -203,11 +202,6 @@ export default function CampaignContacts(props) {
         window.location.reload();
       }
 
-      
-    
-      
-
-
     return (
         <div className={classes.root}>
             {/* switch campaign on or off */}
@@ -237,10 +231,6 @@ export default function CampaignContacts(props) {
                         <Table className={classes.table + " campaignsTable"} aria-label="simple table">
                             <TableHead className={classes.tableHeaders}>
                                 <TableRow>
-                                    {/* <TableCell align="center">Ulinc Campaign Name</TableCell>
-                                    <TableCell align="center">Ulinc Is Active</TableCell>
-                                    <TableCell align="center">Ulinc Campaign ID</TableCell> */}
-
                                     {headCells.map((headCell) => (
                                         <TableCell
                                             key={headCell.id}

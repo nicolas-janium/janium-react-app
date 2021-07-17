@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Typography, Button }  from '@material-ui/core';
-import { EmailMessageDiv, LinkedInMessageDiv } from "../components";
+import { Typography, Button }  from '@material-ui/core';
+import { EmailMessageDiv } from "../components";
 const useStyles = makeStyles((theme) => ({
     root: {
     },

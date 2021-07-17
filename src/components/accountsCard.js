@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardActions, CardContent, CardHeader, Button, Typography, Divider, Modal, Backdrop, Fade, TextField, Checkbox, FormControlLabel } from '@material-ui/core';
-import { shadows } from '@material-ui/system';
 import { AccountList } from "../components";
 
 const useStyles = makeStyles((theme) => ({
@@ -69,10 +68,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AccountsCard(props) {
   const classes = useStyles();
-
-  const [createUlincData, setUlincData] = React.useState({
-    
-  });
 
   const [open, setOpen] = React.useState(false);
 

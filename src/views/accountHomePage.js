@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Accordion, AccordionSummary, AccordionDetails, Typography  }  from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { NavBar, ConnectorTable, NewConnectionsTable, NewResponsesTable, PhoneTaskTable } from "../components";
+import { ConnectorTable, NewConnectionsTable, NewResponsesTable, PhoneTaskTable } from "../components";
 
 const useStyles = makeStyles({
   root: {
@@ -24,9 +24,9 @@ const useStyles = makeStyles({
 export default function AccountHomePage(props) {
   const classes = useStyles();
 
-  const [state, setState] = React.useState({
-    fetchedData: null
-  })
+  // const [state, setState] = React.useState({
+  //   fetchedData: null
+  // })
   
 
   console.log('homepage: ', props.accountInfo);

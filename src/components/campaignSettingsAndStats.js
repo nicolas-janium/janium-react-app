@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Typography, Button, Link, FormControl, InputLabel, Select, MenuItem }  from '@material-ui/core';
+import { Typography, Button, Link, FormControl, InputLabel, Select, MenuItem }  from '@material-ui/core';
 import { CommunicationStatsTable } from "../components";
 const useStyles = makeStyles((theme) => ({
     root: {
