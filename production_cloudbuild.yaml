@@ -8,9 +8,19 @@ steps:
   args: ['-c', 'echo REACT_APP_PRODUCTION_API_URL=https://foundation-production.wm.r.appspot.com/api/v1 > ./.env']
 
 - name: node
+  entrypoint: "bash"
+  args: ['-c', 'echo JANIUM_EMAIL_IDENTIFIER_KEY=$$JANIUM_EMAIL_IDENTIFIER_KEY >> ./.env']
+  secretEnv: ['JANIUM_EMAIL_IDENTIFIER_KEY']
+
+- name: node
   entrypoint: npm
   args: ['run', 'build']
 
 - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
   entrypoint: "bash"
   args: ["-c", "gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy ./production_app.yaml --ignore-file=.buildignore"]
+
+availableSecrets:
+  secretManager:
+  - versionName: projects/foundation-production/secrets/janium-email-identifier-key/versions/latest
+    env: 'JANIUM_EMAIL_IDENTIFIER_KEY'
